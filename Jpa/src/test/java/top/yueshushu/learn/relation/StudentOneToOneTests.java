@@ -26,5 +26,13 @@ public class StudentOneToOneTests {
     public void queryTest(){
         studentService.queryInfo();
     }
+    @Test
+    public void teacherSaveManyTest(){
+        studentService.teacherSaveManyInfo();
+    }
+    @Test
+    public void teacherQueryTest(){
+        studentService.teacherQueryInfo();
+    }
 
 }

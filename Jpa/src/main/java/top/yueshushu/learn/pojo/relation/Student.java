@@ -30,8 +30,12 @@ public class Student implements Serializable {
     @Column(name="password")
     private String password;
     @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "student_detail_id")
+    @JoinColumn(name = "student_detail_id",referencedColumnName = "id")
     private StudentDetail studentDetail;
+    //多对一的操作
+    @ManyToOne(targetEntity = Teacher.class)
+    @JoinColumn(name ="teacher_id",referencedColumnName = "id")
+    private Teacher teacher;
     @Override
     public String toString(){
         return "id:"+id+",name:"+name+",account:"+account

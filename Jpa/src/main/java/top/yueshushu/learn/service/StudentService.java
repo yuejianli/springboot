@@ -12,4 +12,9 @@ public interface StudentService {
     void saveInfo();
 
     void queryInfo();
+
+    void teacherSaveManyInfo();
+
+    void teacherQueryInfo();
+
 }
