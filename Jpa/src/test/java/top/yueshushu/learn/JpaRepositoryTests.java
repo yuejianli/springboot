@@ -9,7 +9,6 @@ import org.springframework.data.domain.ExampleMatcher;
 import top.yueshushu.learn.pojo.User;
 import top.yueshushu.learn.service.UserService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,35 +30,14 @@ public class JpaRepositoryTests {
         userList.forEach(n->log.info(n));
     }
     @Test
-    public void saveTest(){
-        //1. 构建对象
-        User user=new User();
-        user.setName("小欢欢");
-        user.setAge(22);
-        user.setSex("女");
-        user.setDescription("一个小坏蛋");
-
-        User user1=new User();
-        user1.setName("小泽霖");
-        user1.setId(12);
-        user1.setAge(25);
-        user1.setSex("男");
-        user1.setDescription("一个大坏蛋");
-        //2. 放置到集合里面
-        List<User> userList=new ArrayList<>();
-        userList.add(user);
-        userList.add(user1);
-        userService.jpaBatchSave(userList);
-    }
-    @Test
     public void findByExampleTest(){
         User user=new User();
-        user.setName("蝴蝶");
-        user.setAge(26);
+        user.setName("泽霖");
+        user.setAge(25);
         user.setSex("男");
         //1.创建匹配器
         ExampleMatcher exampleMatcher=ExampleMatcher.matching()
-                .withMatcher("sex",matcher -> matcher.exact())
+                .withMatcher("sex",matcher -> matcher.contains())
                 .withMatcher("age",matcher -> matcher.exact())
                 .withMatcher("name",matcher ->matcher.contains());
         //2. 生成Example 对象
@@ -71,25 +49,30 @@ public class JpaRepositoryTests {
 
     @Test
     public void findByNameTest(){
-       List<User> userList=userService.findByName("欢欢");
+       List<User> userList=userService.findByName("小欢欢");
         userList.forEach(n->log.info(n));
     }
     @Test
     public void findBySexAndAgeTest(){
-        List<User> userList=userService.findBySexAndAge("男",26);
+        List<User> userList=userService.findBySexAndAge("男",25);
         userList.forEach(n->log.info(n));
     }
     @Test
     public void findAllOrderByTest(){
-        List<User> userList=userService.findBySexOrderByAge("男");
+        List<User> userList=userService.findBySexOrderByAge("女");
         userList.forEach(n->log.info(n));
     }
 
     @Test
     public void findQueryNameTest(){
-        List<Map<String,Object>> userMapList=userService.findQueryByName("欢欢");
+        List<Map<String,Object>> userMapList=userService.findQueryByName("小欢欢");
         for(Map<String,Object> map:userMapList){
             log.info("id是:{},name是{}",map.get("id"),map.get("name"));
         }
+    }
+    @Test
+    public void findAllSqlTest(){
+        List<User> userList=userService.jpaFindAllSql("小欢欢");
+        userList.forEach(n->log.info(n));
     }
 }

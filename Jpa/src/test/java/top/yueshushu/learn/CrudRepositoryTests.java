@@ -34,13 +34,12 @@ public class CrudRepositoryTests {
         //2. 添加方法
         userService.addUser(user);
        log.info("添加成功,{}",user);
-
     }
     @Test
     public void updateTest(){
         //1. 构建对象
         User user=new User();
-        user.setId(2); //id不存在，会添加
+        user.setId(1); //id不存在，会添加
         user.setName("欢欢");
         user.setDescription("岳泽霖最好的朋友");
         //2. 修改方法
@@ -49,7 +48,7 @@ public class CrudRepositoryTests {
     }
     @Test
     public void deleteTest(){
-        userService.deleteUser(6);
+        userService.deleteUser(1);
     }
     @Test
     public void batchAddTest(){
@@ -62,20 +61,29 @@ public class CrudRepositoryTests {
 
         User user1=new User();
         user1.setName("小泽霖");
-        user1.setId(12);
         user1.setAge(25);
         user1.setSex("男");
         user1.setDescription("一个大坏蛋");
+
+        //这是修改的操作,id=2已经存在这条记录了。
+        User user2=new User();
+        user2.setName("岳泽霖");
+        user2.setId(2);
+        user2.setAge(25);
+        user2.setSex("男性");
+        user2.setDescription("一个快乐的程序员");
+
         //2. 放置到集合里面
         List<User> userList=new ArrayList<>();
         userList.add(user);
         userList.add(user1);
+        userList.add(user2);
         userService.batchAddUser(userList);
     }
 
     @Test
     public void findByIdTest(){
-        User user=userService.findById(9);
+        User user=userService.findById(3);
         log.info(user);
     }
     @Test
@@ -85,7 +93,7 @@ public class CrudRepositoryTests {
     }
     @Test
     public void findByIdsTest(){
-        List<Integer> ids= Arrays.asList(6,8,9);
+        List<Integer> ids= Arrays.asList(3,4,6);
         List<User> userList=userService.findAllByIds(ids);
         userList.forEach(n->log.info(n));
     }

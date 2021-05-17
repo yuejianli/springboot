@@ -33,7 +33,7 @@ public class Student implements Serializable {
     @JoinColumn(name = "student_detail_id",referencedColumnName = "id")
     private StudentDetail studentDetail;
     //多对一的操作
-    @ManyToOne(targetEntity = Teacher.class)
+    @ManyToOne(targetEntity = Teacher.class,optional = false)
     @JoinColumn(name ="teacher_id",referencedColumnName = "id")
     private Teacher teacher;
     @Override

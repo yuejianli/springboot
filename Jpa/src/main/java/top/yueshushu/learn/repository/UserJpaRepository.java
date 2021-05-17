@@ -25,6 +25,11 @@ public interface UserJpaRepository extends JpaRepository<User,Integer> {
 
     @Query(value="select id as id,name as name from user where name=:name",nativeQuery = true)
     List<Map<String,Object>> findQueryByName(@Param("name") String name);
+
+    @Query(value="select * from user where name=:name",nativeQuery = true)
+    List<User> findAllSql(@Param("name")String name);
+
     @Query(value="select * from user where name like concat('%',:name,'%')",nativeQuery = true)
     List<User> findAllQueryByName(@Param("name") String name);
+
 }

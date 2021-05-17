@@ -24,10 +24,10 @@ public class SpecificationTests {
     @Test
     public void nameAndSexAndDescTest(){
         User user=new User();
-       // user.setName("小");
+        user.setName("小欢欢1");
         user.setSex("女");
-        user.setAge(26);
-        user.setDescription("岳泽霖");
+        user.setAge(27);
+        user.setDescription("小坏蛋");
         List<User> userList=userService.findByNameSexAndDesc(user);
         userList.forEach(n->log.info(n));
     }
