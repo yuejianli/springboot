@@ -37,7 +37,4 @@ public interface UserService {
     List<User> queryBeanForAll();
 
     List<User> queryRowSetForAll();
-
-    void batchId();
-
 }
