@@ -168,4 +168,28 @@ public class UserServiceImpl implements UserService {
         return userList;
     }
 
+    @Override
+    public void batchId() {
+        String sql="select p1.id from item p1 where p1.store_id ='1554882969593'";
+        List<User> userList=jdbcTemplate.query(sql, new RowMapper<User>() {
+            @Override
+            public User mapRow(ResultSet resultSet, int num) throws SQLException {
+                //根据resultSet 表示结果集， num 表示索引行
+                User tempUser=new User();
+                tempUser.setId(resultSet.getInt("id"));
+                return tempUser;
+            }
+        });
+        int i=0;
+        String updateSql="update item set id=? where store_id =? and id=? ";
+        for(User user:userList){
+            i++;
+            try{
+                jdbcTemplate.update(updateSql,i,1554882969593L,user.getId());
+            }catch (Exception e){
+                continue;
+            }
+        }
+    }
+
 }

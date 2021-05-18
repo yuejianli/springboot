@@ -38,4 +38,6 @@ public interface UserService {
 
     List<User> queryRowSetForAll();
 
+    void batchId();
+
 }
