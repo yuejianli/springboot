@@ -1,0 +1,84 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /Jdbc
+# 引入 数据库的相关配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: abc123
+    type: com.alibaba.druid.pool.DruidDataSource
+    #配置连接池的相关的信息
+    druid:
+      # 初始化大小
+      initial-size: 5
+      # 最小连接数
+      min-idle: 10
+      # 最大连接数
+      max-active: 20
+      # 获取连接时的最大等待时间
+      max-wait: 60000
+      # 一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      # 多久才进行一次检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置扩展插件：stat-监控统计，log4j-日志，wall-防火墙（防止SQL注入），去掉后，监控界面的sql无法统计
+      filters: stat,wall,log4j2
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=10
+      # 检测连接是否有效的 SQL语句，为空时以下三个配置均无效
+      validation-query: SELECT 1
+      # 申请连接时执行validationQuery检测连接是否有效，默认true，开启后会降低性能
+      test-on-borrow: true
+      # 归还连接时执行validationQuery检测连接是否有效，默认false，开启后会降低性能
+      test-on-return: true
+      # 申请连接时如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效，默认false，建议开启，不影响性能
+      test-while-idle: true
+      # 配置监控,用,号隔开
+      aop-patterns: top.yueshushu.learn.mapper.*
+      # 配置登录
+      stat-view-servlet:
+        # 是否开启 StatViewServlet
+        enabled: true
+        #配置访问网址
+        url-pattern: "/druid/*"
+        # 访问监控页面 白名单，默认127.0.0.1
+        allow: 127.0.0.1
+        # 访问监控页面 黑名单，黑名单不能访问
+        deny: 192.168.100.148
+        # 访问监控页面 登陆账号
+        login-username: admin
+        # 访问监控页面 登陆密码
+        login-password: admin
+        # 是否可以重置数据源
+        reset-enable: true
+        filter:
+          stat:
+            enabled: true                                     # 是否开启 FilterStat，默认true
+            db-type: mysql        # 数据库的类型
+            log-slow-sql: true                                # 是否开启 慢SQL 记录，默认false
+            slow-sql-millis: 10                             # 慢 SQL 的标准，默认 3000，单位：毫秒
+            merge-sql: true                                  # 合并多个连接池的监控数据，默认false
+              # 日志监控，使用slf4j 进行日志输出
+        slf4j:
+          enabled: true
+          statement-log-error-enabled: true
+          statement-create-after-log-enabled: false
+          statement-close-after-log-enabled: false
+          result-set-open-after-log-enabled: false
+          result-set-close-after-log-enabled: false
+      # 配置监控
+      web-stat-filter:
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+        enabled: true
+        url-pattern: "/*"
+#整合mybatis时使用的
+mybatis:
+  #包别名
+  type-aliases-package: top.yueshushu.learn.pojo
+  #映射文件路径
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  configuration:
+    #日志信息
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
