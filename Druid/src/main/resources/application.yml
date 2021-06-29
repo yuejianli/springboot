@@ -26,6 +26,7 @@ spring:
       time-between-eviction-runs-millis: 60000
       # 配置扩展插件：stat-监控统计，log4j-日志，wall-防火墙（防止SQL注入），去掉后，监控界面的sql无法统计
       filters: stat,wall,log4j2
+      #配置慢sql展示语句   slowSqlMillis 对应的是慢sql的时间
       connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=10
       # 检测连接是否有效的 SQL语句，为空时以下三个配置均无效
       validation-query: SELECT 1
@@ -53,26 +54,12 @@ spring:
         login-password: admin
         # 是否可以重置数据源
         reset-enable: true
-        filter:
-          stat:
-            enabled: true                                     # 是否开启 FilterStat，默认true
-            db-type: mysql        # 数据库的类型
-            log-slow-sql: true                                # 是否开启 慢SQL 记录，默认false
-            slow-sql-millis: 10                             # 慢 SQL 的标准，默认 3000，单位：毫秒
-            merge-sql: true                                  # 合并多个连接池的监控数据，默认false
-              # 日志监控，使用slf4j 进行日志输出
-        slf4j:
-          enabled: true
-          statement-log-error-enabled: true
-          statement-create-after-log-enabled: false
-          statement-close-after-log-enabled: false
-          result-set-open-after-log-enabled: false
-          result-set-close-after-log-enabled: false
       # 配置监控
       web-stat-filter:
         exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
         enabled: true
         url-pattern: "/*"
+
 #整合mybatis时使用的
 mybatis:
   #包别名
