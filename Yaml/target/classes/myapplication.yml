@@ -1,0 +1,15 @@
+# 放置基本的元素
+name: 两个蝴蝶飞
+single: false
+age: 26
+# 放置对象
+book:
+  name: 陌生人,我送你一首诗
+  author: 岳泽霖
+  score: 0.00
+  hobby:
+    - 看书
+    - 写代码
+    - 写诗
+    - 写博客
+addr: ${book.addr:暂无地址}

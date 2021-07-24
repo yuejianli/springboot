@@ -1,0 +1,28 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /Jdbc
+# 引入 数据库的相关配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: abc123
+  # JPA的相关配置
+  jpa:
+    # 设置数据库平台
+    database-platform: org.hibernate.dialect.MySQLDialect
+    # 设置数据库
+    database: mysql
+    # 是否展示SQL语句
+    show-sql: true
+    hibernate:
+      use-new-id-generator-mappings: false
+      # 持久化规则是 update
+      ddl-auto: update
+      naming:
+        # 物理命名策略类的全限定名称
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+

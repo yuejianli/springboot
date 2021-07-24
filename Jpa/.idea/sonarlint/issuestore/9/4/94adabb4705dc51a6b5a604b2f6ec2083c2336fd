@@ -1,0 +1,32 @@
+
+_
+java:S18547"=Remove this useless assignment to local variable "userList5".(˜ê‚ùÿÿÿÿ8è€—–£/
+K
+java:S14814".Remove this unused "userList3" local variable.(ó¾‰ƒ8è€—–£/
+P
+java:S14817".Remove this unused "userList5" local variable.(˜ê‚ùÿÿÿÿ8è€—–£/
+[
+java:S1854 "9Remove this useless assignment to local variable "user4".(ï‰Ñ¦ÿÿÿÿÿ8æä‹“£/
+L
+java:S1481 "*Remove this unused "user4" local variable.(ï‰Ñ¦ÿÿÿÿÿ8æä‹“£/
+G
+java:S1481"*Remove this unused "user3" local variable.(çá‘¼8æä‹“£/
+P
+java:S14816".Remove this unused "userList4" local variable.(Â¼Ü‡úÿÿÿÿ8É¾“£/
+G
+java:S1481)"*Remove this unused "user3" local variable.(çá‘¼8¡…£•£/
+V
+java:S1854"9Remove this useless assignment to local variable "user3".(çá‘¼8æä‹“£/
+V
+java:S1854)"9Remove this useless assignment to local variable "user3".(çá‘¼8¡…£•£/
+G
+java:S1135"2Complete the task associated to this TODO comment.(£°§\
+L
+java:S1481*"*Remove this unused "user4" local variable.(ï‰Ñ¦ÿÿÿÿÿ8¡…£•£/
+[
+java:S1854*"9Remove this useless assignment to local variable "user4".(ï‰Ñ¦ÿÿÿÿÿ8¡…£•£/
+_
+java:S18546"=Remove this useless assignment to local variable "userList4".(Â¼Ü‡úÿÿÿÿ8”ü“£/
+Z	java:S106<"9Replace this use of System.out or System.err by a logger.(õš‡àúÿÿÿÿ8è€—–£/
+Z
+java:S18544"=Remove this useless assignment to local variable "userList3".(ó¾‰ƒ8è€—–£/

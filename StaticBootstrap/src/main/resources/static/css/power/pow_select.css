@@ -1,0 +1,169 @@
+.sdetail {
+	padding-left: 47px;
+}
+.sdetail >p{
+	padding: 7px 8px 0px 7px;
+	cursor: default;
+	margin: 0px;
+}
+.sdetail >p >.dec{
+	color: #999;
+}
+.sdetail >p >.operate{
+	float: left;
+	margin-left:15px;
+	cursor: pointer;
+}
+.sdetail >p >.operate:hover{
+	color:#337ab7;
+}
+.sdetail >p >span >.operate{
+	cursor: pointer;
+	color:#337ab7;
+}
+.sdetail .tooltip-inner p{
+	margin: 0px;
+	text-align: left;
+}
+
+.sDiv div{
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	padding: 3px;
+	margin-bottom: 6px;
+	text-align: left;
+	cursor: default;
+}
+.sDiv div:last-child{
+	margin: 0px;
+}
+.sDiv img{
+	width: 80px;
+	height: 80px;
+	border-radius: 5px;
+}
+.sDiv table tbody tr:first-child td:last-child{
+	color: #333333;
+}
+.sDiv table tbody tr td:last-child{
+	color: #909090;
+	padding-left: 10px;
+}
+
+.contain{
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	margin-bottom: 15px;
+}
+.contain >label{
+	padding-bottom: 6px;
+	padding-left: 15px;
+	background-color: #eee;
+	width: 100%;
+	text-align: left !important;
+	font-size: 16px;
+}
+.contain >div{
+	border-top: 1px solid #ddd;
+}
+.contain >div >div >span{
+	font-size: 16px;
+	padding-top: 7px;
+}
+.contain >div >div >.special{
+	font-size: 14px;
+	text-align: right;
+}
+.contain >div >div >.special + .sdetail{
+	padding-left: 0px;
+}
+.contain >div >div >.sdetail:last-child{
+	padding-bottom: 7px;
+}
+
+.show_style{
+	text-align: center;
+	margin:7px 10px;
+}
+
+.popover{
+	width: 350px;
+}
+.popover .popover-title{
+	font-weight: 600;
+}
+.popover .popover-content{
+	padding: 6px;
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+#main_view .modal-content .table-no-bordered{
+	border-top: 1px solid #ddd !important;
+	border-bottom: 1px solid #ddd !important;
+}
+#main_view .modal-content .modal-body table thead{
+	display: none !important;
+}
+#main_view .modal-content .modal-body table{
+	border: 0px !important;
+	cursor: default;
+}
+#main_view .modal-content .modal-body table tbody .unified:hover{
+	color: #337ab7 !important;
+	background-color: #DAECFF !important;
+}
+#main_view .modal-content .modal-body table tbody tr:hover{
+	color: #3c763d;
+	background-color: #EEF6FF;
+	animation: hoverRow 1s;
+	-moz-animation: hoverRow  1s; /* Firefox */
+	-webkit-animation: hoverRow  1s; /* Safari and Chrome */
+	-o-animation: hoverRow  1s; /* Opera */
+}
+
+#main_view .modal-content .modal-body table tbody tr td{
+	border: 0px !important;
+}
+#main_view .modal-content .modal-body table tbody .unified{
+	color: #337ab7;
+	background-color: #DAECFF;
+}
+
+#main_view .modal-content .modal-body table tbody tr td >.main{
+	font-size: 18px;
+	color: #337ab7;
+	padding-left: 0px;
+}
+
+#main_view .modal-content .modal-body table tbody tr td >.branch{
+	padding-left: 36px;
+}
+
+#main_view .modal-content .modal-body table tbody tr td .tooltip-inner{
+	text-align: left;
+}
+
+#show_view .modal-content{
+	 cursor: default;
+}
+#show_view .modal-content .modal-header span:first-child{
+	 font-size: 24px;
+}
+#user_view .modal-content .modal-header span:first-child{
+	 cursor: pointer;
+}
+#show_view .modal-content .modal-header span:last-child{
+	 font-size: 20px;
+}
+
+@keyframes hoverRow{
+	0%{ 
+		color: #333333;
+		background-color: #ffffff;
+	}
+	100%{
+		color: #3c763d;
+		background-color: #EEF6FF;
+	}
+}
