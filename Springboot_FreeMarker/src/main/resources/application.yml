@@ -1,0 +1,39 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /FreeMarker
+# 引入 数据库的相关配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: abc123
+    type: com.alibaba.druid.pool.DruidDataSource
+  # 配置freemark的相关的信息
+  freemarker:
+    # 设置文件的路径，对应的是 directoryForTemplateLoading 属性
+    # 关闭缓存，及时进行刷新。 上线生产环境，需要改成 true
+    cache: false
+    # 设置编码的样式
+    charset: UTF-8
+    #是否检查模板的位置
+    check-template-location: false
+    # 模板的样式
+    content-type: text/html
+    # 是否曝露
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+    # 后缀
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+mybatis:
+  #包别名
+  type-aliases-package: top.yueshushu.learn.pojo
+  #映射文件路径
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  configuration:
+    #日志信息
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
