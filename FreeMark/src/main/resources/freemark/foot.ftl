@@ -1,6 +1,5 @@
 <hr>
 <i>
-    Copyright (c) 2000 <a href="http://www.acmee.com">Acmee Inc</a>,
+    Copyright (c) 2000 <a href="top.yueshushu.com">yueshushu_top</a>,
     <br>
-    All Rights Reserved.
 </i>
