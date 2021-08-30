@@ -5,13 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import top.yueshushu.learn.freemark.pojo.User;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @ClassName:InfoController
- * @Description TODO
+ * @Description 整合Thymeleaf所使用的Controller
  * @Author yjl
  * @Date 2021/6/15 10:55
  * @Version 1.0
@@ -43,18 +42,17 @@ public class InfoController {
         model.addAttribute("age","26");
         model.addAttribute("inputValue","一个快乐的程序员");
         model.addAttribute("href","https://yuejl.blog.csdn.net/");
-
         return "basic";
     }
 
     /**
-     * 复杂信息对象展示
+     * If对象展示
      * @param model
      * @return
      */
-    @RequestMapping("/complex")
-    public String complex(Model model){
-        model.addAttribute("title","学习 Thymeleaf的复杂标签");
+    @RequestMapping("/if")
+    public String ifModel(Model model){
+        model.addAttribute("title","学习 Thymeleaf的if标签");
         //放置 java bean 对象
         User user=new User();
         user.setName("岳泽霖");
@@ -65,34 +63,45 @@ public class InfoController {
         model.addAttribute("sex","男");
         model.addAttribute("enable","0");
         model.addAttribute("score",85);
-
-        //放置foreach 语句
-        String[] hobbies=new String[]{"看书","编程","打游戏"};
-
-        model.addAttribute("hobbies",hobbies);
-        List<User> userList=getUserList();
-        model.addAttribute("userList",userList);
-        return "complex";
+        return "if";
     }
 
     /**
-     * 复杂信息对象展示
+     * for 循环展示
      * @param model
      * @return
      */
-    @RequestMapping("/message")
-    public String message(Model model, HttpSession httpSession){
-        model.addAttribute("title","学习 Thymeleaf的Message消息标签");
+    @RequestMapping("/for")
+    public String forModel(Model model){
+        model.addAttribute("title","学习 Thymeleaf的js内置标签");
         //放置 java bean 对象
         User user=new User();
         user.setName("岳泽霖");
         user.setAge(26);
         user.setDescription("一个快乐的程序员");
         model.addAttribute("user",user);
-        //放置session
-        httpSession.setAttribute("loginUser",user);
-        return "message";
+        //放置if 语句
+        //放置foreach 语句
+        String[] hobbies=new String[]{"看书","编程","打游戏"};
+        model.addAttribute("hobbies",hobbies);
+        List<User> userList=getUserList();
+        model.addAttribute("userList",userList);
+        return "for";
     }
+
+    @RequestMapping("/myjs")
+    public String myjs(Model model){
+        model.addAttribute("title","学习 Thymeleaf的If标签");
+        //放置 java bean 对象
+        User user=new User();
+        user.setName("岳泽霖");
+        user.setAge(26);
+        user.setDescription("一个快乐的程序员");
+        model.addAttribute("user",user);
+        return "myjs";
+    }
+
+
     private List<User> getUserList() {
         List<User> userList=new ArrayList<>();
         for(int i=1;i<=10;i++){

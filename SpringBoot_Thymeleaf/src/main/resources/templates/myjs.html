@@ -1,0 +1,25 @@
+<!doctype html>
+<!--注意：引入thymeleaf的名称空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type"content="text/html;charset=UTF-8">
+    <title>Welcome <span th:text="${title}"/></title>
+    <link rel="StyleSheet" th:href="@{webjars/bootstrap/3.4.1/css/bootstrap.css}" type="text/css">
+</head>
+<body class="container">
+<h1>Java Bean 展示信息</h1>
+我的名字是: <span th:text="${user.name}"/>
+    年龄是: <span th:text="${user['age']}"/>
+    描述是: <textarea th:block th:text="${user.getDescription()}"/>
+<script th:inline="javascript">
+    const user = /*[[${user}]]*/ {};
+    const age = /*[[${user.age}]]*/ 24;
+    const name = /*[[${user.name}]]*/ "两个蝴蝶飞";
+    console.log(user);
+    console.log(age)
+    console.log(name)
+</script>
+<script type="text/javascript" th:src="@{webjars/jquery/3.5.1/jquery.js}"></script>
+<script type="text/javascript" th:src="@{webjars/bootstrap/3.4.1/js/bootstrap.js}"></script>
+</body>
+</html>

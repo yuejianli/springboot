@@ -11,41 +11,6 @@
 我的名字是: <span th:text="${user.name}"/>
     年龄是: <span th:text="${user['age']}"/>
     描述是: <textarea th:block th:text="${user.getDescription()}"/>
-<h1>IF 条件语句</h1>
-<h2>三目条件表达式</h2>
-性别: <span th:text="${sex=='男'}?'男':'女'"/>
-<h2>th:if 的处理</h2>
-<span th:if="${sex}=='男'">
-    男性
-</span>
-
-<th:block>
-    <span th:if="${enable}=='1'">
-        正常
-    </span>
-    <span th:unless="${enable}=='1'">
-        禁用
-    </span>
-</th:block>
-<h2>th:switch 的处理</h2>
-<div th:switch="${score}>=0">
-  <span th:case="${score}>=90">
-      优秀
-  </span>
-    <span th:case="${score}>=80">
-        良好
-    </span>
-    <span th:case="${score}>=70">
-        中
-    </span>
-    <span th:case="${score}>=60">
-        及
-    </span>
-    <span th:case="*">
-        差
-    </span>
-</div>
-
 <h1>循环 th:each 的处理</h1>
 我的爱好:
 <div th:each="hobby:${hobbies}">
