@@ -1,0 +1,81 @@
+<!doctype html>
+<!--注意：引入thymeleaf的名称空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type"content="text/html;charset=UTF-8">
+    <title>Welcome <span th:text="${title}"/></title>
+    <link rel="StyleSheet" th:href="@{webjars/bootstrap/3.4.1/css/bootstrap.css}" type="text/css">
+</head>
+<body class="container">
+<h1>Java Bean 展示信息</h1>
+我的名字是: <span th:text="${user.name}"/>
+    年龄是: <span th:text="${user['age']}"/>
+    描述是: <textarea th:block th:text="${user.getDescription()}"/>
+<h1>IF 条件语句</h1>
+<h2>三目条件表达式</h2>
+性别: <span th:text="${sex=='男'}?'男':'女'"/>
+<h2>th:if 的处理</h2>
+<span th:if="${sex}=='男'">
+    男性
+</span>
+
+<th:block>
+    <span th:if="${enable}=='1'">
+        正常
+    </span>
+    <span th:unless="${enable}=='1'">
+        禁用
+    </span>
+</th:block>
+<h2>th:switch 的处理</h2>
+<div th:switch="${score}>=0">
+  <span th:case="${score}>=90">
+      优秀
+  </span>
+    <span th:case="${score}>=80">
+        良好
+    </span>
+    <span th:case="${score}>=70">
+        中
+    </span>
+    <span th:case="${score}>=60">
+        及
+    </span>
+    <span th:case="*">
+        差
+    </span>
+</div>
+
+<h1>循环 th:each 的处理</h1>
+我的爱好:
+<div th:each="hobby:${hobbies}">
+    <span th:text="${hobby}"></span>
+</div>
+
+<table class="table table-hover">
+    <th>
+        <td>id编号</td>
+        <td>名称</td>
+        <td>年龄</td>
+        <td>性别</td>
+        <td>描述</td>
+    </th>
+    <th:block th:each="u:${userList}">
+    <tr>
+        <td></td>
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.name}"></td>
+        <td th:text="${u.age}"></td>
+        <td th:text="${u.sex=='男'}?'男':'女'">
+        </td>
+        <td th:text="${u.description}"></td>
+    </tr>
+    </th:block>
+</table>
+
+
+
+<script type="text/javascript" th:src="@{webjars/jquery/3.5.1/jquery.js}"></script>
+<script type="text/javascript" th:src="@{webjars/bootstrap/3.4.1/js/bootstrap.js}"></script>
+</body>
+</html>

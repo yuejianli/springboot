@@ -1,0 +1,22 @@
+<!doctype html>
+<!--注意：引入thymeleaf的名称空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type"content="text/html;charset=UTF-8">
+    <title>Welcome <span th:text="${title}"/> message的消息展示 </title>
+    <link rel="StyleSheet" href="webjars/bootstrap/3.4.1/css/bootstrap.css" type="text/css">
+</head>
+< class="container">
+<h1>${} 获取变量值</h1>
+输出用户名: <span th:text="${user.name}"></span>
+获取 session值: <span th:text="${session.loginUser.name}"></span>
+<h1>选择变量 *{} 获取变量值</h1>
+<div th:object="${session.loginUser}">
+    <p> 用户名: <span th:text="*{name}"></span><p>
+    <p> 年龄: <span th:text="*{age}"></span><p>
+    <p> 描述: <span th:text="*{description}"></span><p>
+</div>
+<script type="text/javascript" src="webjars/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.4.1/js/bootstrap.js"></script>
+</body>
+</html>
