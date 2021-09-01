@@ -13,21 +13,17 @@
     <artifactId>learn</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>MyBatis</name>
-    <description>两个蝴蝶飞学习Mybatis</description>
+    <description>两个蝴蝶飞学习MybatisPlus</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -50,18 +46,29 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        <!--引入springboot与mybatis-plus整合的依赖-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--引入springboot与mybatis-plus整合的依赖。 去掉mybatis的依赖-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.2.0</version>
+            <version>3.3.2</version>
         </dependency>
-        <!-- 引入pagehelper分页插件 -->
         <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.6</version>
+        </dependency>
+        <!-- 引入pagehelper分页插件  注意版本号要与 mybatis-plus 进行匹配到 -->
+         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.5</version>
+            <version>1.2.12</version>
         </dependency>
+
     </dependencies>
 
     <build>

@@ -9,14 +9,24 @@ spring:
     url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
     username: root
     password: abc123
+    type: com.alibaba.druid.pool.DruidDataSource
 #整合mybatis时使用的
 mybatis-plus:
-  configuration:
-    map-underscore-to-camel-case: true
-    auto-mapping-behavior: full
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 配置 mapper文件的位置
   mapper-locations: classpath:mybatis/mapper/**/*.xml
+  # 配置日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true #  配置别名设置
   global-config:
     db-config:
-      logic-not-delete-value: 1
-      logic-delete-value: 0
+      logic-delete-field: flag   # 逻辑删除的字段
+      logic-not-delete-value: 1  # 正常状态下，该字段的值
+      logic-delete-value: 0      # 删除后，该字段的值
+      table-underline: true # 驼峰方式转换
+#分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

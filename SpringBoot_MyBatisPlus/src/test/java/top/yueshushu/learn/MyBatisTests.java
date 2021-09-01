@@ -1,5 +1,6 @@
 package top.yueshushu.learn;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.log4j.Log4j2;
 import org.junit.Test;
@@ -43,7 +44,7 @@ public class MyBatisTests {
     public void updateTest(){
         //1. 构建对象
         User user=new User();
-        user.setId(1); //id不存在，会添加
+        user.setId(13); //id不存在，会添加
         user.setName("欢欢");
         user.setDescription("岳泽霖最好的朋友");
         //2. 修改方法
@@ -53,7 +54,7 @@ public class MyBatisTests {
     @Test
     public void deleteTest(){
 
-        userService.deleteUser(1);
+        userService.deleteUser(16);
     }
     // 批量添加，批量修改操作。
     @Test
@@ -171,7 +172,17 @@ public class MyBatisTests {
     public void pageTest(){
         Integer pageNumber=2;
         Integer pageSize=3;
-        PageInfo pageInfo=userService.pageUser(pageNumber,pageSize);
+        Page pageInfo=userService.pageUser(pageNumber,pageSize);
+        log.info("总数:"+pageInfo.getTotal());
+        List<User> userList=pageInfo.getRecords();
+        userList.forEach(n->log.info(n));
+    }
+
+    @Test
+    public void githubPageTest(){
+        Integer pageNumber=2;
+        Integer pageSize=3;
+        PageInfo pageInfo=userService.githubPageUser(pageNumber,pageSize);
         log.info("总数:"+pageInfo.getTotal());
         List<User> userList=pageInfo.getList();
         userList.forEach(n->log.info(n));

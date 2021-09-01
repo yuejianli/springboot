@@ -1,5 +1,6 @@
 package top.yueshushu.learn.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.pagehelper.PageInfo;
 import top.yueshushu.learn.pojo.User;
 
@@ -38,5 +39,7 @@ public interface UserService {
 
     List<User> findByNameSexAndDesc(User user);
 
-    PageInfo pageUser( Integer pageNumber,Integer pageSize);
+    Page pageUser(Integer pageNumber, Integer pageSize);
+
+    PageInfo githubPageUser(Integer pageNumber, Integer pageSize);
 }
