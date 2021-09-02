@@ -26,7 +26,7 @@ public class MultipeDataSourceApplicationTests {
     public void addUserTest(){
         //1. 构建对象
         User user=new User();
-        user.setName("欢欢");
+        user.setName("周小欢");
         user.setAge(22);
         user.setSex("女");
         user.setDescription("一个非常可爱的女孩纸");
@@ -55,5 +55,17 @@ public class MultipeDataSourceApplicationTests {
         List<Dept> deptList=userService.listDept();
         deptList.forEach(n->log.info(n));
     }
+
+    /**
+     * 数据源切换配置
+     */
+    @Test
+    public void allDataSourceTest(){
+        addUserTest();
+        listDeptTest();
+        addDeptTest();
+        listUserTest();
+    }
+
 }
 

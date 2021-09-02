@@ -20,8 +20,10 @@ import java.util.List;
  **/
 @Service
 public class UserServiceImpl implements UserService {
+    // 数据源1  放置到 springboot 数据库里面
     @Resource
     private JdbcTemplate jdbcTemplateOne;
+    //数据源2， 放置到 springboot2 数据库里面
     @Resource
     private JdbcTemplate jdbcTemplateTwo;
     @Override

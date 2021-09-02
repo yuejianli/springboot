@@ -24,12 +24,17 @@ public class DataSourceConfig {
     @Bean("dataSourceOne")
     @ConfigurationProperties("spring.datasource.one")
     public DataSource dataSourceOne(){
+
         return DruidDataSourceBuilder.create().build();
     }
+    /**
+     * 创建 springboot2 的数据库的数据源 DataSource
+     * @return
+     */
     @Bean("dataSourceTwo")
     @ConfigurationProperties("spring.datasource.two")
     public DataSource dataSourceTwo(){
+
         return DruidDataSourceBuilder.create().build();
     }
-
 }

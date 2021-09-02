@@ -7,7 +7,7 @@ CREATE TABLE `user` (
     `age` int(6) DEFAULT NULL,
     `description` varchar(50) DEFAULT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 --  在 springboot2 数据库里面 创建 dept 表
 
