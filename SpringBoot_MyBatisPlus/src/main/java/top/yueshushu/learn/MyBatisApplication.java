@@ -5,8 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @ClassName:YamlApplication
- * @Description jpa 讲解
+ * @ClassName:MyBatisApplication
+ * @Description MybatisPlus 讲解
  * @Author 岳建立
  * @Date 2021/4/26 12:01
  * @Version 1.0
