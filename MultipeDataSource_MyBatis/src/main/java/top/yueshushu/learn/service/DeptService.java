@@ -1,6 +1,6 @@
 package top.yueshushu.learn.service;
 
-import top.yueshushu.learn.pojo.Dept;
+import top.yueshushu.learn.pojo.two.Dept;
 
 import java.util.List;
 

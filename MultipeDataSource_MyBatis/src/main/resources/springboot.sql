@@ -10,7 +10,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --  在 springboot2 数据库里面 创建 dept 表
-
+use springboot2;
 CREATE TABLE `dept` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `name` varchar(200) DEFAULT NULL,

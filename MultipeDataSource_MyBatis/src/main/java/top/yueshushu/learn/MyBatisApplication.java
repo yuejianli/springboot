@@ -10,8 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date 2021/4/26 12:01
  * @Version 1.0
  **/
-//可以排除依赖，也可以不排除。
-//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+// @MapperScan(value = "top.yueshushu.learn.mapper")  //去掉扫描注解
 @SpringBootApplication
 public class MyBatisApplication {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package top.yueshushu.learn.pojo;
+package top.yueshushu.learn.pojo.two;
 
 import lombok.Data;
 

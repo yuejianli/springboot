@@ -28,8 +28,8 @@ spring:
       type: com.alibaba.druid.pool.DruidDataSource
 #整合mybatis时使用的
 mybatis:
-  #包别名
-  type-aliases-package: top.yueshushu.learn.pojo
+  #包别名 去掉
+  # type-aliases-package: top.yueshushu.learn.pojo
   #映射文件路径  不能使用了
   # mapper-locations: classpath:mybatis/**/*.xml
   configuration:

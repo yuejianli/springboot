@@ -3,7 +3,7 @@ package top.yueshushu.learn.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import top.yueshushu.learn.pojo.User;
+import top.yueshushu.learn.pojo.one.User;
 import top.yueshushu.learn.service.UserService;
 
 import java.util.List;

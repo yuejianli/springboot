@@ -2,8 +2,8 @@ package top.yueshushu.learn.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import top.yueshushu.learn.mapper2.DeptMapper;
-import top.yueshushu.learn.pojo.Dept;
+import top.yueshushu.learn.mapper.mapper2.DeptMapper;
+import top.yueshushu.learn.pojo.two.Dept;
 
 import java.util.List;
 

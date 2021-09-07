@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.yueshushu.learn.mapper1.UserMapper">
+<mapper namespace="top.yueshushu.learn.mapper.mapper1.UserMapper">
 
     <insert id="addUser">
         insert into user(name,sex,age,description) values(
             #{user.name},#{user.sex},#{user.age},#{user.description}
         )
     </insert>
-    <select id="listUser" resultType="top.yueshushu.learn.pojo.User">
+    <select id="listUser" resultType="top.yueshushu.learn.pojo.one.User">
         select * from user
     </select>
 </mapper>

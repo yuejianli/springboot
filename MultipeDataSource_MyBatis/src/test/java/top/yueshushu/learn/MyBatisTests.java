@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import top.yueshushu.learn.pojo.Dept;
-import top.yueshushu.learn.pojo.User;
+import top.yueshushu.learn.pojo.two.Dept;
+import top.yueshushu.learn.pojo.one.User;
 import top.yueshushu.learn.service.DeptService;
 import top.yueshushu.learn.service.UserService;
 
@@ -60,5 +60,15 @@ public class MyBatisTests {
     public void listDeptTest(){
         List<Dept> deptList=deptService.listDept();
         deptList.forEach(n->log.info(n));
+    }
+    /**
+     * 数据源切换配置
+     */
+    @Test
+    public void allDataSourceTest(){
+        addUserTest();
+        listDeptTest();
+        addDeptTest();
+        listUserTest();
     }
 }
