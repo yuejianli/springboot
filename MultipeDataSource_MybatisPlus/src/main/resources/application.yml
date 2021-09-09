@@ -1,7 +1,7 @@
 server:
   port: 8081
   servlet:
-    context-path: /MyBatis
+    context-path: /MyBatisPlus
 # 引入 数据库的相关配置
 #spring:
 #  datasource:
@@ -12,14 +12,14 @@ server:
 # 配置成多数据源的形式
 spring:
   autoconfigure:
-    # 去掉Druid 配置
+    # 去掉Druid 配置   //第一部分点
     exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
   # 自动配置，例外处理
   datasource:
     # 配置数据源
     type: com.alibaba.druid.pool.DruidDataSource
     dynamic:
-      primary: one #设置默认的数据源或者数据源组,默认值即为master
+      primary: one #设置默认的数据源或者数据源组,默认值即为master。 为了统一，设置成one
       strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
       datasource:
         # 配置第一个数据库
@@ -28,14 +28,12 @@ spring:
           url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false
           username: root
           password: abc123
-          # type: com.alibaba.druid.pool.DruidDataSource
         # 配置第二个数据库
         two:
           driver-class-name: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://localhost:3306/springboot2?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false
           username: root
           password: abc123
-          # type: com.alibaba.druid.pool.DruidDataSource
     druid:
       # 其他的 Druid 连接池配置信息
       max-active: 30

@@ -1,5 +1,6 @@
 package top.yueshushu.learn.service;
 
+import top.yueshushu.learn.pojo.one.User;
 import top.yueshushu.learn.pojo.two.Dept;
 
 import java.util.List;
@@ -14,5 +15,6 @@ import java.util.List;
 public interface DeptService {
     void batchAddDept(List<Dept> deptList);
     List<Dept> listDept();
-
+    //走 springboot 数据库的方法
+    List<User> listUser();
 }

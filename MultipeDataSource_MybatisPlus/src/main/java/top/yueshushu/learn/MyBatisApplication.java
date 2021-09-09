@@ -17,6 +17,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MyBatisApplication {
     public static void main(String[] args) {
         SpringApplication.run(MyBatisApplication.class,args);
-        System.out.println("运行 Mybatis 多数据源配置文件");
+        System.out.println("运行 MybatisPlus 多数据源配置文件");
     }
 }

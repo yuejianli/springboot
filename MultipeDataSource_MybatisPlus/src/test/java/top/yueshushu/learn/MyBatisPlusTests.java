@@ -61,8 +61,12 @@ public class MyBatisPlusTests {
 
     @Test
     public void listUserTest(){
+        System.out.println("User实现类:>>>>>>>>>>>查询员工");
         List<User> userList=userService.listUser();
         userList.forEach(n->log.info(n));
+        System.out.println("User实现类:>>>>>>>>>>>>查询部门");
+        List<Dept> deptList=userService.listDept();
+        deptList.forEach(n->log.info(n));
     }
     @Test
     public void addDeptTest(){
@@ -84,8 +88,12 @@ public class MyBatisPlusTests {
 
     @Test
     public void listDeptTest(){
+        System.out.println("Dept实现类:>>>>>>>查询部门");
         List<Dept> deptList=deptService.listDept();
         deptList.forEach(n->log.info(n));
+        System.out.println("Dept实现类:>>>>>>>>>>>查询员工");
+        List<User> userList=deptService.listUser();
+        userList.forEach(n->log.info(n));
     }
     /**
      * 数据源切换配置

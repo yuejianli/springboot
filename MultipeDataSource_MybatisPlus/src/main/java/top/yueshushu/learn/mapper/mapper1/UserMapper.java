@@ -13,7 +13,8 @@ import java.util.List;
  * @Date 2021/5/18 17:51
  * @Version 1.0
  **/
-//@Mapper 不进行配置扫描
+//扫描由启动类进行扫描配置
 public interface UserMapper extends BaseMapper<User> {
+    //走 xml的配置
     void batchAdd(@Param("userList") List<User> userList);
 }
