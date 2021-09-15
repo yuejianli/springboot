@@ -1,7 +1,7 @@
 server:
   port: 8081
   servlet:
-    context-path: /Jdbc
+    context-path: /Redis
 # 引入 数据库的相关配置
 spring:
   datasource:

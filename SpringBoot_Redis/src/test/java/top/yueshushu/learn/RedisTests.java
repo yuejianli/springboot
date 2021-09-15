@@ -58,6 +58,4 @@ public class RedisTests {
         //StringRedisTemplate 放置对象 user, 不太好放置。
 
     }
-
-
 }

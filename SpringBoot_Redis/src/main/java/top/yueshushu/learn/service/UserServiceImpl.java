@@ -29,14 +29,29 @@ public class UserServiceImpl implements UserService {
     public void addUser(User user) {
         userMapper.addUser(user);
         log.info("将用户编号为{}放置到缓存里面",user.getId());
+        //放置单个缓存
         redisUtil.set(KEY_PRE+user.getId(),user);
+        //更新全部的缓存信息
+        resetAllCache();
 
     }
+    @Override
+    public void updateUser(User user) {
+        userMapper.updateUser(user);
+        log.info("将用户编号为{}更新到缓存里面",user.getId());
+        //设置新的缓存
+        redisUtil.set(KEY_PRE+user.getId(),user);
+        //更新全部的缓存信息
+        resetAllCache();
+    }
+
     @Override
     public void deleteUser(int id) {
         userMapper.deleteById(id);
         log.info("将用户编号为{}从缓存中移除",id);
         redisUtil.delByKey(KEY_PRE+id);
+        //更新全部的缓存信息
+        resetAllCache();
     }
     @Override
     public User findById(int id) {
@@ -63,5 +78,13 @@ public class UserServiceImpl implements UserService {
         userList= userMapper.findAll();
         redisUtil.leftPushAll(KEY_PRE+"ALL",userList);
         return userList;
+    }
+    //重新全部的缓存信息
+    private void resetAllCache() {
+        //先删除
+        redisUtil.delByKey(KEY_PRE+"ALL");
+        //再重新赋值值
+       List<User> userList= userMapper.findAll();
+        redisUtil.leftPushAll(KEY_PRE+"ALL",userList);
     }
 }

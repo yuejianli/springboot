@@ -12,8 +12,8 @@ import top.yueshushu.learn.service.UserService;
 import java.util.List;
 
 /**
- * @ClassName:MyBatisTests
- * @Description Mybatis测试使用
+ * @ClassName:RedisDBTests
+ * @Description Redis测试使用
  * @Author yjl
  * @Date 2021/5/18 17:50
  * @Version 1.0
@@ -35,18 +35,32 @@ public class RedisDBTests {
         //2. 添加方法
         userService.addUser(user);
         log.info("添加成功,{}",user);
+        findAllTest();
     }
     @Test
+    public void updateTest(){
+       User user=userService.findById(43);  //id随时更换
+       user.setName("我换新的名字了");
+       userService.updateUser(user);
+       log.info("修改成功{}",user);
+        findAllTest();
+    }
+
+    @Test
     public void deleteTest(){
-        userService.deleteUser(43);
+        userService.deleteUser(43); //id随时更换
+        log.info("删除成功了");
+        findAllTest();
+
     }
     @Test
     public void findByIdTest(){
-        User user=userService.findById(43);
+        User user=userService.findById(43); //id随时更换
         log.info(user);
     }
     @Test
     public void findAllTest(){
+        log.info(">>>>>>>>目前数据库中存在的用户信息:");
         List<User> userList=userService.findAll();
         userList.forEach(n->log.info(n));
     }

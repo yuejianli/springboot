@@ -15,7 +15,9 @@ import java.util.List;
 public interface UserMapper {
 
     void addUser(@Param("user") User user);
+    void updateUser(@Param("user") User user);
     void deleteById(@Param("id") int id);
     User findById(@Param("id") int id);
     List<User> findAll();
+
 }

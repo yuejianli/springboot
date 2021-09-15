@@ -7,6 +7,9 @@
             #{user.name},#{user.sex},#{user.age},#{user.description}
         )
     </insert>
+    <update id="updateUser">
+        update user set name=#{user.name,jdbcType=VARCHAR} where id=#{user.id}
+    </update>
     <delete id="deleteById">
         delete from user where id=#{id}
     </delete>

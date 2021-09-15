@@ -962,64 +962,6 @@ public class RedisUtil {
 	}
 
 	/******3.4其他操作结束******/
-	/******3.5 系统目前直接使用的key为ap******/
-	/**
-	 * 功能描述：存储hash数据结构
-	 *
-	 * @param field redis的字段名
-	 * @param value 字段值
-	 */
-	public void setHashMap(String field, Object value) {
-		redisTemplate.boundHashOps("ap").put(field, value);
-
-	}
-
-	/**
-	 * 功能描述:获取hashMap中的值
-	 *
-	 * @param field 字段名
-	 * @return
-	 */
-	public Object getHashMap(String field) {
-		return redisTemplate.boundHashOps("ap").get(field);
-	}
-
-	/**
-	 * 功能描述:删除redis中存在数据
-	 *
-	 * @param field 字段名
-	 */
-	public void delHashKey(String field) {
-
-		redisTemplate.boundHashOps("ap").delete(field);
-	}
-
-	/**
-	 * 功能描述:删除ap的所有数据
-	 */
-	public void delHash() {
-		redisTemplate.boundHashOps("ap").delete();
-	}
-
-	/**
-	 * 功能描述:获取ap里面所有字段名
-	 *
-	 * @param ap
-	 */
-	public Set<Object> getHashKeys(String ap) {
-		return redisTemplate.boundHashOps("ap").keys();
-	}
-
-	/**
-	 * 功能描述：获取ap里面所有的vaues
-	 *
-	 * @return
-	 */
-	public List<Object> getHashValues() {
-
-		return redisTemplate.boundHashOps("ap").values();
-	}
-	/******3.5系统目前直接使用的key为ap*******/
 	/** ------------------------4.list相关操作---------------------------- */
 	/*******4.1 放置值操作开始******/
 	/**
@@ -1317,55 +1259,6 @@ public class RedisUtil {
 		}
 	}
 	/*******4.3 删除值操作结束******/
-	/*******4.4 自定义多色屏操作开始******/
-	/**
-	 * 功能描述: 把大value数据的二维字节数字拆分保存
-	 * 主要是把多色屏的大value数据分批保存
-	 *
-	 * @param key   redis存放的键值
-	 * @param bytes 放入的大型二维数组
-	 * @date 2020/6/22 13:40
-	 * @author jinshenkai(O - kai)
-	 */
-	public void rightPushAll(String key, byte[][] bytes) {
-		redisTemplate.delete(key);
-
-		for (byte[] aByte : bytes) {
-			String s = Base64.getEncoder().encodeToString(aByte);
-			redisTemplate.opsForList().rightPush(key, s);
-		}
-	}
-
-	/**
-	 * 功能描述: 把大value数据的二维字节数字还原，并且可选择是否删除整个 key&value
-	 * 把多色屏的大value数据分批取出，并且还原二维图像数组
-	 *
-	 * @param key redis存放的键值
-	 * @param del true删除键值对，false不管
-	 * @return byte[][] 从当前key中拿到的整个二维字节数组（没有则为null）
-	 * @date 2020/6/22 14:02
-	 * @author jinshenkai(O - kai)
-	 */
-	public byte[][] rightPopAll(String key, boolean del) {
-		byte[][] result = null;
-		List<Object> range = redisTemplate.opsForList().range(key, 0, -1);
-		if (!CollectionUtils.isEmpty(range)) {
-			int size = range.size();
-			byte[][] resultBytes = new byte[size][];
-			for (int i = 0; i < size; i++) {
-				byte[] decode = Base64.getDecoder().decode((String) range.get(i));
-				resultBytes[i] = decode;
-			}
-			if (del) {
-				redisTemplate.delete(key);
-			}
-			result = resultBytes;
-		}
-
-		return result;
-	}
-	/*******4.4 自定义多色屏操作结束******/
-
 	/*******4.5 其他操作开始******/
 	/**
 	 * 功能描述:移除列表的最后一个元素，并将该元素添加到另一个列表并返回

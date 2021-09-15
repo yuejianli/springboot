@@ -1,8 +1,6 @@
 package top.yueshushu.learn.pojo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -14,8 +12,6 @@ import java.io.Serializable;
  * @Version 1.0
  **/
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class User implements Serializable {
     /**
      * @param id id编号
