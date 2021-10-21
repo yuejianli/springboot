@@ -8,6 +8,23 @@ spring:
     url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
     username: root
     password: abc123
+    # 配置thymeleaf的相关信息
+    thymeleaf:
+      # 开启视图解析
+      enabled: true
+      #编码格式
+      encoding: UTF-8
+      #前缀配置
+      prefix: classpath:/templates/
+      # 后缀配置
+      suffix: .html
+      #是否使用缓存 开发环境时不设置缓存
+      cache: false
+      # 格式为 HTML 格式
+      mode: HTML5
+      # 配置类型
+      servlet:
+        content-type: text/html
   # 配置Redis的使用
   redis:
     database: 15 # 所使用的数据库  默认是0
@@ -22,7 +39,8 @@ spring:
         min-idle: 10
         max-wait: 100000
   profiles:
-    active: 8081
+    active: 8081   # 默认启用的端口号是 8081
+  # 配置session的相关信息
   session:
     store-type: redis  # 配置存储的类型
     timeout: 3600  # 配置过期时间
@@ -38,7 +56,7 @@ mybatis:
   configuration:
     #日志信息
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
+#  多环境配置，默认为 8081
 ---
 server:
   port: 8081

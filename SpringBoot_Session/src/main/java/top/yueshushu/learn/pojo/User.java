@@ -19,12 +19,15 @@ public class User implements Serializable {
      * @param sex 性别
      * @param age 年龄
      * @param description 描述
+     * @param password 密码
      */
     private Integer id;
     private String name;
     private String sex;
     private Integer age;
     private String description;
+    private String account;
+    private String password;
 }
 
 

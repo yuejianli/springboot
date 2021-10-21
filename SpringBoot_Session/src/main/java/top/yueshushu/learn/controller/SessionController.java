@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * @ClassName:RedisController
- * @Description TODO
+ * @Description 创建和获取Session的信息
  * @Author zk_yjl
  * @Date 2021/9/9 13:55
  * @Version 1.0
@@ -21,8 +21,10 @@ public class SessionController {
 
     @RequestMapping("/createSession")
     public String createSession(HttpSession httpSession){
-        httpSession.setAttribute("name",port+",两个蝴蝶飞");
-        return "端口号是:"+port+"的应用创建Session,属性是:"+httpSession.getAttribute("name").toString();
+        String sessionId=httpSession.getId();
+        httpSession.setAttribute("name",port+",两个蝴蝶飞"+sessionId);
+        httpSession.setAttribute("sname",port+":abc");
+        return sessionId+"创建端口号是:"+port+"的应用创建Session,属性是:"+httpSession.getAttribute("name").toString();
     }
 
     @RequestMapping("/getSession")
