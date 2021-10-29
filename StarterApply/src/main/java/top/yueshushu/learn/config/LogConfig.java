@@ -1,7 +1,6 @@
 package top.yueshushu.learn.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import top.yueshushu.log.LogService;
 import top.yueshushu.log.LogVo;
 
@@ -13,7 +12,7 @@ import top.yueshushu.log.LogVo;
  * @Version 1.0
  * @Since 1.0
  **/
-//@Configuration
+@Configuration
 public class LogConfig implements LogService {
 
     @Override

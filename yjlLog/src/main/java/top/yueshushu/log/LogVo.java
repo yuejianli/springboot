@@ -1,12 +1,12 @@
 package top.yueshushu.log;
+
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @ClassName:LogVo
- * @Description 自定义日志的输出展示，或者保存到数据库里面。
+ * @Description 自定义日志的输出展示对象
  * @Author zk_yjl
  * @Date 2021/10/25 10:22
  * @Version 1.0
@@ -42,7 +42,7 @@ public class LogVo implements Serializable {
     private Long execTime;
     private String excName;
     private String excInfo;
-
+    // ... 其他后期扩展字段
     @Override
     public String toString() {
         return "LogVo{" +

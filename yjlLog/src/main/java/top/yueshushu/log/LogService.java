@@ -1,11 +1,8 @@
 package top.yueshushu.log;
 
-import lombok.extern.log4j.Log4j2;
-import org.springframework.stereotype.Component;
-
 /**
  * @ClassName:LogService
- * @Description TODO
+ * @Description 日志处理的接口
  * @Author zk_yjl
  * @Date 2021/10/25 10:28
  * @Version 1.0

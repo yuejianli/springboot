@@ -23,14 +23,14 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * 可以使用，但暂时不用。
+ * 可以使用
  * @date 2021/10/25 10:53
  * @author zk_yjl
  */
 @Slf4j
-/*@Aspect
-@Component
-@Order(1)*/
+//@Aspect
+//@Component
+//@Order(1)
 public class LogAspect {
 
     /**
@@ -43,20 +43,22 @@ public class LogAspect {
      */
     private int paramMaxPrintLength = 20000;
 
-  /*  @Pointcut("(execution(public * top.yueshushu.learn.controller.*.*(..))) " +
-            "|| (execution(public * top.yueshushu.learn.controller.*.*(..)))")*/
+    //定义多个切点的位置
+    @Pointcut("(execution(public * top.yueshushu.learn.controller.*.*(..))) " +
+            "|| (execution(public * top.yueshushu.learn.controller2.*.*(..)))")
     public void log(){
     }
 
-  /*  @Before("log()")*/
+    @Before("log()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
     }
 
-  /*  @AfterReturning(value = "log()", returning = "ret")*/
+    @AfterReturning(value = "log()", returning = "ret")
     public void doAfterReturning(Object ret) throws Throwable {
+
     }
 
-  /*  @Around("log()")*/
+    @Around("log()")
     public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
 
         String invokeMethodFullPath = buildInvokeMethodFullPath(joinPoint);
@@ -127,7 +129,6 @@ public class LogAspect {
                 }
                 requestP.put(parameters[i].getName(), arg);
             }
-
             // 提前构造入参信息，防方法内修改入参对象，异常时再构造入参会不准
             return toJsonString(requestP);
         } catch (Exception e) {

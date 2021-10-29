@@ -1,16 +1,13 @@
 package top.yueshushu.log;
 
-import ch.qos.logback.classic.spi.LoggerContextVO;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.aop.aspectj.AspectJExpressionPointcut;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
@@ -19,8 +16,7 @@ import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+
 @Aspect
 /**
  * 自定义日志输出AOP切面，定义以添加了MyLog注解的所有方法作为连接点，
@@ -37,7 +33,7 @@ public class LogAspect{
     /**
      * 切点连接点：在MyLog注解的位置切入
      */
-    @Pointcut(value ="@annotation(top.yueshushu.log.MyLog)")
+    @Pointcut(value ="(@annotation(top.yueshushu.log.MyLog)) ||(execution(public * *..controller.*.*(..))))")
     public void doMyLogCut() {
 
     }
@@ -47,14 +43,20 @@ public class LogAspect{
      * @param
      */
     @Around(value = "doMyLogCut()")
-    public void logInvoke(ProceedingJoinPoint joinPoint) throws Throwable{
+    public Object logInvoke(ProceedingJoinPoint joinPoint) throws Throwable{
         //记录一下时间，
         long beginTime = System.currentTimeMillis();
         Object keys = joinPoint.proceed();
         long time = System.currentTimeMillis() - beginTime;
         LogVo myLogVO = this.getMyLog(joinPoint, keys,null);
         myLogVO.setExecTime(time);
-        logService.logHandler(myLogVO);
+        /**
+          运行的时间长 才执行操作
+         */
+        if(mylogProperties.getRunTime()<=time){
+            logService.logHandler(myLogVO);
+        }
+        return keys;
     }
     /**
      * 异常发生时的通知
@@ -66,6 +68,7 @@ public class LogAspect{
         LogVo myLogVO = this.getMyLog(joinPoint, null,e);
         //出现异常，执行时间为 -1
         myLogVO.setExecTime(-1L);
+        // 异常的，一直都进行操作.
         logService.logHandler(myLogVO);
     }
     /**
@@ -112,13 +115,21 @@ public class LogAspect{
             if(null != e){
                 myLogVO.setExcName(e.getClass().getName());
                 myLogVO.setExcInfo(stackTraceToString(e.getClass().getName(), e.getMessage(), e.getStackTrace()));
+
             }
             //请求的参数，参数所在的数组转换成json
             String params =  Arrays.toString(joinPoint.getArgs());
             myLogVO.setParams(params);
             //返回值
             if(null != keys && Void.class.getName() != keys){
-                myLogVO.setReturnValue(JSONObject.toJSONString(keys));
+                StringBuilder result =new StringBuilder( JSONObject.toJSONString(keys));
+                if(mylogProperties.getResultLength()==0){
+                    //表示全部
+                    myLogVO.setReturnValue(result.toString());
+                }else{
+                    result.substring(0,mylogProperties.getResultLength());
+                    myLogVO.setReturnValue(result.toString());
+                }
             }
             //输出日志
         } catch (Exception ex) {
@@ -135,11 +146,13 @@ public class LogAspect{
      */
     private String stackTraceToString(String exceptionName, String exceptionMessage, StackTraceElement[] elements) {
         StringBuffer strbuff = new StringBuffer();
-        for (StackTraceElement stet : elements) {
-            strbuff.append(stet + "\n");
+        if(mylogProperties.getExcFullShow()){
+            for (StackTraceElement stet : elements) {
+                strbuff.append(stet + "\n");
+            }
+            return exceptionName + ":" + exceptionMessage + "\n\t" + strbuff.toString();
         }
-        String message = exceptionName + ":" + exceptionMessage + "\n\t" + strbuff.toString();
-        return message;
+        return exceptionName+":"+exceptionMessage;
     }
     /**
      * 获取当前的时间
