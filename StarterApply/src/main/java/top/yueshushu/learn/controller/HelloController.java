@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import top.yueshushu.learn.response.OutputResult;
+import top.yueshushu.log.MyLog;
 
 /**
  * @ClassName:HelloController
@@ -29,6 +30,7 @@ public class HelloController {
     }
     //可能会出现异常的方法
     @GetMapping("/div/{a}/{b}")
+    @MyLog(module = "测试Controller",optType = "测试",description = "可能有异常的情况")
     public OutputResult div(@PathVariable("a") int a, @PathVariable("b") int b){
         return OutputResult.success(a/b);
     }

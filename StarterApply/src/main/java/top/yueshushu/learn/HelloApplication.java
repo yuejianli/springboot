@@ -4,6 +4,7 @@ package top.yueshushu.learn;
 //import com.yang.log.hui.annotion.EnableMyLog;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import top.yueshushu.log.EnableMyLog;
 //import top.yueshushu.log.EnableMyLog;
 
 /**
@@ -15,7 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  **/
 //1. 添加SpringBootApplication注解
 @SpringBootApplication
-//@EnableMyLog
+@EnableMyLog   //添加注解
 public class HelloApplication {
     public static void main(String[] args) {
         //2. SpringApplication 类运行

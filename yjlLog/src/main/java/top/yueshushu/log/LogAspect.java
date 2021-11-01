@@ -127,13 +127,13 @@ public class LogAspect{
                     //表示全部
                     myLogVO.setReturnValue(result.toString());
                 }else{
-                    result.substring(0,mylogProperties.getResultLength());
-                    myLogVO.setReturnValue(result.toString());
+                   String tempResult=result.substring(0,mylogProperties.getResultLength());
+                    myLogVO.setReturnValue(tempResult);
                 }
             }
             //输出日志
         } catch (Exception ex) {
-            ex.printStackTrace();
+           // ex.printStackTrace();
         }
         return myLogVO;
     }
@@ -177,22 +177,26 @@ public class LogAspect{
             //X-Forwarded-For：Squid 服务代理
             String ipAddresses = request.getHeader("X-Forwarded-For");
 
-            if (ipAddresses == null || ipAddresses.length() == 0 || "unknown".equalsIgnoreCase(ipAddresses)) {
+            if (ipAddresses == null || ipAddresses.length() == 0 ||
+                    "unknown".equalsIgnoreCase(ipAddresses)) {
                 //Proxy-Client-IP：apache 服务代理
                 ipAddresses = request.getHeader("Proxy-Client-IP");
             }
 
-            if (ipAddresses == null || ipAddresses.length() == 0 || "unknown".equalsIgnoreCase(ipAddresses)) {
+            if (ipAddresses == null || ipAddresses.length() == 0 ||
+                    "unknown".equalsIgnoreCase(ipAddresses)) {
                 //WL-Proxy-Client-IP：weblogic 服务代理
                 ipAddresses = request.getHeader("WL-Proxy-Client-IP");
             }
 
-            if (ipAddresses == null || ipAddresses.length() == 0 || "unknown".equalsIgnoreCase(ipAddresses)) {
+            if (ipAddresses == null || ipAddresses.length() == 0 ||
+                    "unknown".equalsIgnoreCase(ipAddresses)) {
                 //HTTP_CLIENT_IP：有些代理服务器
                 ipAddresses = request.getHeader("HTTP_CLIENT_IP");
             }
 
-            if (ipAddresses == null || ipAddresses.length() == 0 || "unknown".equalsIgnoreCase(ipAddresses)) {
+            if (ipAddresses == null || ipAddresses.length() == 0 ||
+                    "unknown".equalsIgnoreCase(ipAddresses)) {
                 //X-Real-IP：nginx服务代理
                 ipAddresses = request.getHeader("X-Real-IP");
             }
@@ -203,7 +207,8 @@ public class LogAspect{
             }
 
             //还是不能获取到，最后再通过request.getRemoteAddr();获取
-            if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddresses)) {
+            if (ipAddress == null || ipAddress.length() == 0 ||
+                    "unknown".equalsIgnoreCase(ipAddresses)) {
                 ipAddress = request.getRemoteAddr();
             }
         } catch (Exception e) {
