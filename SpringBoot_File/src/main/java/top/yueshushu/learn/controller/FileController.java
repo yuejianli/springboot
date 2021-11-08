@@ -44,8 +44,8 @@ public class FileController {
     @ResponseBody
     public String upload(MultipartFile file, HttpServletRequest request) throws IOException {
         // 获得 classpath 的绝对路径
-       // String realPath = request.getServletContext().getRealPath("static/files");
-      //  String realPath = ResourceUtils.getURL("classpath:").getPath()+"static/files";
+       //String realPath = request.getServletContext().getRealPath("static/files");
+       //String realPath = ResourceUtils.getURL("classpath:").getPath()+"static/files";
         String realPath =uploadFilePath;
         File newFile = new File(realPath);
         // 如果文件夹不存在、则新建
@@ -54,7 +54,7 @@ public class FileController {
         }
         // 上传
         file.transferTo(new File(newFile, file.getOriginalFilename()));
-        String uploadPath=realPath+"/"+file.getOriginalFilename();
+        String uploadPath=realPath+File.separator+file.getOriginalFilename();
         return "上传文件成功,地址为:"+uploadPath;
     }
 
