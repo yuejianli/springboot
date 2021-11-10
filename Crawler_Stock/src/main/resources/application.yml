@@ -1,0 +1,15 @@
+# 配置股票获取的相关信息
+# 默认的查询接口配置
+default:
+  # 展示今天的股票信息
+  show_day_url: http://quote.eastmoney.com/{0}.html?code={1}
+  # 展示所有的股票信息
+  all_stock_url: >
+    https://20.push2.eastmoney.com/api/qt/clist/get?pn=1&pz=10000000&np=1&fid=f3&fields=f12,
+    f13,f14&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23,b:MK0021,b:MK0022,b:MK0023,b:MK0024
+  # 查询这个股票的历史信息
+  stock_history_url: >
+    http://push2his.eastmoney.com/api/qt/stock/kline/get?
+    fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61
+    &klt=101&fqt=1&secid={}&beg={}&end={}
+  # 下载该股票的信息
