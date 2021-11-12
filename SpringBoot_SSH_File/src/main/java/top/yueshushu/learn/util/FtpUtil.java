@@ -1,13 +1,10 @@
 package top.yueshushu.learn.util;
 
-import cn.hutool.extra.ftp.Ftp;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.util.StringUtils;
-import sun.net.ftp.FtpClient;
 import top.yueshushu.learn.pojo.SshFileProperties;
 
 import java.io.IOException;
@@ -25,6 +22,8 @@ import java.io.IOException;
 public class FtpUtil {
     @Autowired
     private SshFileProperties sshFileProperties;
+    @Value("${file.useftp}")
+    private Boolean useftp;
     /**
      * 创建连接
      * @date 2021/11/5 17:21
@@ -33,6 +32,9 @@ public class FtpUtil {
      * @return org.apache.commons.net.ftp.FTPClient
      */
     public FTPClient createFileClient(){
+       if(!useftp){
+           return null;
+       }
        FTPClient ftpClient=new FTPClient();
        try{
            ftpClient.setControlEncoding("gbk");

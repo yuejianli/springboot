@@ -2,8 +2,6 @@ package top.yueshushu.learn.service.impl;
 
 import cn.hutool.extra.ssh.Sftp;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import top.yueshushu.learn.service.FileService;
 
@@ -18,12 +16,12 @@ import java.io.FileInputStream;
  * @Version 1.0
  * @Since 1.0
  **/
-//@Service("sftpFileService")
 @Log4j2
 public class SftpFileServiceImpl implements FileService {
-   // @Autowired
     private Sftp sftp;
-
+    public SftpFileServiceImpl(Sftp sftp){
+        this.sftp=sftp;
+    }
     @Override
     public String upload(String dest,String fileName, File file) {
         if(StringUtils.isEmpty(fileName)){

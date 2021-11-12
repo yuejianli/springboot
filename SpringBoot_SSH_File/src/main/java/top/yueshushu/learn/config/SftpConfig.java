@@ -5,21 +5,31 @@ import cn.hutool.extra.ssh.Sftp;
 import com.jcraft.jsch.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import top.yueshushu.learn.pojo.SshFileProperties;
 
-//@Configuration
+@Configuration
 public class SftpConfig {
    @Autowired
    private SshFileProperties sshFileProperties;
+   @Value("${file.useftp}")
+   private Boolean useftp;
 
-  //  @Bean
-    public Sftp getSftp() { return createSftp(
+    @Bean
+    public Sftp getSftp() {
+        if(useftp){
+            return null;
+        }
+        return createSftp(
             sshFileProperties.getHost(), sshFileProperties.getPort(), sshFileProperties.getUsername(), sshFileProperties.getPassword()); }
 
-    //@Bean
+    @Bean
     public Session getSession() {
+        if(useftp){
+            return null;
+        }
         return createSession(sshFileProperties.getHost(),
                 sshFileProperties.getPort(),
                 sshFileProperties.getUsername(),

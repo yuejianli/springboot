@@ -1,10 +1,6 @@
 package top.yueshushu.learn.service;
 
-import org.aspectj.util.FileUtil;
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.File;
-import java.io.InputStream;
 
 /**
  * @ClassName:FileService

@@ -30,7 +30,7 @@ import java.io.IOException;
 @Controller
 public class FileController {
 
-    @Resource(name="ftpFileService")
+    @Autowired
     private FileService fileService;
 
     @Autowired

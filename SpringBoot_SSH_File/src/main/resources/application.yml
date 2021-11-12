@@ -2,21 +2,16 @@ server:
   port: 7011
   servlet:
     context-path: /File
-# 引入 数据库的相关配置
-ssh:
-  host: 192.168.56.103
-  port: 22
-  username: ftpuser
-  password: yjl1314
-  uploadFilePath: /var/ftp/test/
-  downloadFilePath: D:/
-#ssh:
-#  host: 192.168.100.148
-#  port: 22
-#  username: root
-#  password: root
-#  uploadFilePath: /usr/local/esl
-#  downloadFilePath: D:/
+# 进行配置
+file:
+  useftp: true
+  ssh:
+    host: 192.168.56.103
+    port: 21
+    username: ftpuser
+    password: ftpuser
+    uploadFilePath: /home/ftpuser/
+    downloadFilePath: D:/
 spring:
   # 配置thymeleaf的相关信息
   thymeleaf:
@@ -40,3 +35,6 @@ spring:
     multipart:
       max-file-size: 100MB   # 服务器端文件大小限制
       max-request-size: 100MB  # 客户端请求文件大小限制
+  profiles:
+    # 配置谁生效
+    active: ftp
