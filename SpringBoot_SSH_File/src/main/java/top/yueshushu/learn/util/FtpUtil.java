@@ -38,7 +38,7 @@ public class FtpUtil {
        FTPClient ftpClient=new FTPClient();
        try{
            ftpClient.setControlEncoding("gbk");
-           ftpClient.connect(sshFileProperties.getHost(), 21);
+           ftpClient.connect(sshFileProperties.getHost(), sshFileProperties.getPort());
            ftpClient.login(sshFileProperties.getUsername(), sshFileProperties.getPassword());
            ftpClient.enterLocalPassiveMode();
            // 设置上传目录

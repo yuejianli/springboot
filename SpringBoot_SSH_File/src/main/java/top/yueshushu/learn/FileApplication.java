@@ -17,10 +17,6 @@ import top.yueshushu.learn.config.JavaConfig;
 @SpringBootApplication
 public class FileApplication {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-        ctx.getEnvironment().getSystemProperties().put("usessh",true);
-        ctx.register(JavaConfig.class);
-        ctx.refresh();
         SpringApplication.run(FileApplication.class,args);
     }
 }

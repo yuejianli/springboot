@@ -4,13 +4,13 @@ server:
     context-path: /File
 # 进行配置
 file:
-  useftp: true
+  useftp: false
   ssh:
     host: 192.168.56.103
-    port: 21
-    username: ftpuser
-    password: ftpuser
-    uploadFilePath: /home/ftpuser/
+    port: 22
+    username: root   #服务器的用户名
+    password: abc123  # 服务器的密码
+    uploadFilePath: /usr/local/
     downloadFilePath: D:/
 spring:
   # 配置thymeleaf的相关信息
@@ -37,4 +37,4 @@ spring:
       max-request-size: 100MB  # 客户端请求文件大小限制
   profiles:
     # 配置谁生效
-    active: ftp
+    active: sftp
