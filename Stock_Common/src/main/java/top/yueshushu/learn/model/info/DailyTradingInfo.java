@@ -22,6 +22,11 @@ public class DailyTradingInfo extends BaseModel {
      */
     private Date date;
     /**
+     * 昨天的收盘价
+     */
+    private BigDecimal yesClosingPrice;
+    /**
+    /**
      * 开盘价
      */
     private BigDecimal openingPrice;

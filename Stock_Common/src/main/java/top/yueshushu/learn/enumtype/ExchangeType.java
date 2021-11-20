@@ -14,15 +14,15 @@ public enum ExchangeType {
     /**
      * 深圳
      */
-    SZ(2,"sz"),
+    SZ(0,"sz"),
     /**
      * 北京
      */
-    BJ(3,"bj"),
+    BJ(2,"bj"),
     /**
      * 其它的非上述地区
      */
-    OTHER(0,"other");
+    OTHER(10,"other");
 
     private Integer code;
 

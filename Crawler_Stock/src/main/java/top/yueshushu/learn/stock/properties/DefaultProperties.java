@@ -1,4 +1,4 @@
-package top.yueshushu.learn.stock.pojo;
+package top.yueshushu.learn.stock.properties;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,10 +18,11 @@ import java.io.Serializable;
 @Component
 public class DefaultProperties implements Serializable {
     /**
-     * 展示今天的股票信息
+     * 展示今天的股票信息,接口方式
      */
     @Value("${default.show_day_url}")
     private String showDayUrl;
+
     /**
      * 所有的股票信息
      */
@@ -32,4 +33,30 @@ public class DefaultProperties implements Serializable {
      */
     @Value("${default.stock_history_url}")
     private String stockHistoryUrl;
+    /**
+     * 下载股票的历史记录
+     */
+    @Value("${default.stock_history_download_url}")
+    private String stockHistoryDownloadUrl;
+    /**
+     * 分钟的K线图
+     */
+    @Value("${default.min_url}")
+    private String minUrl;
+    /**
+     * 天的K线图
+     */
+    @Value("${default.daily_url}")
+    private String dailyUrl;
+    /**
+     * 周的K线图
+     */
+    @Value("${default.weekly_url}")
+    private String weeklyUrl;
+    /**
+     * 月的K线图
+     */
+    @Value("${default.monthly_url}")
+    private String monthlyUrl;
+
 }

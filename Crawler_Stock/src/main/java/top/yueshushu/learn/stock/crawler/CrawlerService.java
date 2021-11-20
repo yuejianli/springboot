@@ -2,6 +2,9 @@ package top.yueshushu.learn.stock.crawler;
 import top.yueshushu.learn.model.info.DailyTradingInfo;
 import top.yueshushu.learn.model.info.StockInfo;
 import top.yueshushu.learn.model.info.StockShowInfo;
+import top.yueshushu.learn.stock.entity.DownloadStockInfo;
+import top.yueshushu.learn.stock.entity.StockHistoryCsvInfo;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -14,13 +17,31 @@ import java.util.List;
  **/
 public interface CrawlerService {
 
-    public default List<StockInfo> getStockList(){
+    public default List<DownloadStockInfo> getStockList(){
         return Collections.EMPTY_LIST;
     };
 
-    public default List<DailyTradingInfo> getDailyIndex(String code){
+    public default List<StockHistoryCsvInfo> parseStockHistoryList(String code,
+                                                           String startDate,
+                                                           String endDate){
         return Collections.EMPTY_LIST;
     }
 
     public default StockShowInfo getNowInfo(String code){return new StockShowInfo();}
+
+    public default String getMinUrl(String code){
+        return "";
+    }
+
+    public default String getDayUrl(String code){
+        return "";
+    }
+
+    public default String getWeekUrl(String code){
+        return "";
+    }
+
+    public default String getMonthUrl(String code){
+        return "";
+    }
 }

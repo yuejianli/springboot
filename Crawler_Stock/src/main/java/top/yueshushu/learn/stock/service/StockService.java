@@ -1,20 +1,34 @@
 package top.yueshushu.learn.stock.service;
 
-import top.yueshushu.learn.model.info.StockShowInfo;
+import com.baomidou.mybatisplus.extension.service.IService;
 import top.yueshushu.learn.response.OutputResult;
+import top.yueshushu.learn.ro.stock.StockRo;
+import top.yueshushu.learn.stock.pojo.Stock;
 
 /**
- * @ClassName:StockService
+ * @InterfaceName StockBaseService
  * @Description TODO
  * @Author 岳建立
- * @Date 2021/11/10 22:30
+ * @Date 2021/11/14 0:04
  * @Version 1.0
  **/
-public interface StockService {
+public interface StockService extends IService<Stock>{
     /**
-     * 展示股票现在的信息
-     * @param code 股票的代码
+     * 查询股票的相关信息
+     * @param stockRo
      * @return
      */
-    OutputResult<StockShowInfo> showNowInfo(String code);
+    OutputResult list(StockRo stockRo);
+
+    /**
+     * 删除所有的数据
+     */
+    void deleteAll();
+
+    /**
+     * 查询股票的信息
+     * @param code
+     * @return
+     */
+    Stock selectByCode(String code);
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.yueshushu.learn.stock.mapper.StockHistoryMapper">
+    <resultMap id="stockHistoryMap" type="top.yueshushu.learn.stock.pojo.StockHistory">
+        <id property="id" column="id"></id>
+        <result property="currDate" column="curr_date"></result>
+        <result property="code" column="code"></result>
+        <result property="name" column="name"></result>
+        <result property="closingPrice" column="closing_price"></result>
+        <result property="highestPrice" column="highest_price"></result>
+        <result property="lowestPrice" column="lowest_price"></result>
+        <result property="openingPrice" column="opening_price"></result>
+        <result property="yesClosingPrice" column="yesClosing_price"></result>
+        <result property="amplitude" column="amplitude"></result>
+        <result property="amplitudeProportion" column="amplitude_proportion"></result>
+        <result property="tradingVolume" column="trading_volume"></result>
+        <result property="tradingValue" column="trading_value"></result>
+        <result property="flag" column="flag"></result>
+    </resultMap>
+
+    <resultMap id="stockHistoryVoMap" type="top.yueshushu.learn.vo.stock.StockHistoryVo">
+        <id property="id" column="id"></id>
+        <result property="currDate" column="curr_date"></result>
+        <result property="code" column="code"></result>
+        <result property="name" column="name"></result>
+        <result property="closingPrice" column="closing_price"></result>
+        <result property="highestPrice" column="highest_price"></result>
+        <result property="lowestPrice" column="lowest_price"></result>
+        <result property="openingPrice" column="opening_price"></result>
+        <result property="yesClosingPrice" column="yesClosing_price"></result>
+        <result property="amplitude" column="amplitude"></result>
+        <result property="amplitudeProportion" column="amplitude_proportion"></result>
+        <result property="tradingVolume" column="trading_volume"></result>
+        <result property="tradingValue" column="trading_value"></result>
+        <result property="flag" column="flag"></result>
+    </resultMap>
+
+    <sql id="baseSql">
+        id,curr_date,code,name,closing_price,highest_price,lowest_price,
+        opening_price,yesClosing_price,amplitude,amplitude_proportion,
+        trading_volume,trading_value,flag
+    </sql>
+    <select id="getStockHistory" resultMap="stockHistoryVoMap">
+        select <include refid="baseSql"/> from stock_history t
+        where t.code=#{code}
+        order by t.curr_date desc
+    </select>
+    <delete id="deleteAsyncData">
+        delete from stock_history where code=#{code}
+        and curr_date &gt;=#{startDate,jdbcType=TIMESTAMP}
+        and curr_date &lt;=#{endDate,jdbcType=TIMESTAMP}
+<!--        <![CDATA[ when t.curr_date >=#{startDate} and t.curr_date <=#{endDate} ]]>-->
+    </delete>
+</mapper>

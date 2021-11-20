@@ -1,15 +1,60 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /Crawler
+  #设置头的大小
+  max-http-header-size: 102400
+# 指定目录
+uploadFilePath: D:/upload/
 # 配置股票获取的相关信息
 # 默认的查询接口配置
 default:
   # 展示今天的股票信息
-  show_day_url: http://quote.eastmoney.com/{0}.html?code={1}
+  show_day_url: https://hq.sinajs.cn/list={0}
   # 展示所有的股票信息
   all_stock_url: >
-    https://20.push2.eastmoney.com/api/qt/clist/get?pn=1&pz=10000000&np=1&fid=f3&fields=f12,
-    f13,f14&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23,b:MK0021,b:MK0022,b:MK0023,b:MK0024
+    https://20.push2.eastmoney.com/api/qt/clist/get?pn=1&pz=10000000&np=1&fid=f3&fields={0}&fs=m:0+t:6,m:0+t:13,m:0+t:80,m:1+t:2,m:1+t:23,b:MK0021,b:MK0022,b:MK0023,b:MK0024
   # 查询这个股票的历史信息
   stock_history_url: >
     http://push2his.eastmoney.com/api/qt/stock/kline/get?
     fields1=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6&fields2=f51%2Cf52%2Cf53%2Cf54%2Cf55%2Cf56%2Cf57%2Cf58%2Cf59%2Cf60%2Cf61
     &klt=101&fqt=1&secid={}&beg={}&end={}
+  stock_history_download_url: >
+    http://quotes.money.163.com/service/chddata.html?code={0}&start={1}&end={2}&fields=TCLOSE;HIGH;LOW;TOPEN;
+    LCLOSE;CHG;PCHG;VOTURNOVER;VATURNOVER
   # 下载该股票的信息
+  #k线图
+  min_url: http://image.sinajs.cn/newchart/min/n/{0}.gif
+  daily_url: http://image.sinajs.cn/newchart/daily/n/{0}.gif
+  weekly_url: http://image.sinajs.cn/newchart/weekly/n/{0}.gif
+  monthly_url: http://image.sinajs.cn/newchart/monthly/n/{0}.gif
+# 引入 数据库的相关配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/stock?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: abc123
+    type: com.alibaba.druid.pool.DruidDataSource
+  #配置上传的文件信息
+  servlet:
+    multipart:
+      max-file-size: 100MB   # 服务器端文件大小限制
+      max-request-size: 100MB  # 客户端请求文件大小限制
+#整合mybatis时使用的。   去掉整合 MyBatis的配置信息
+mybatis-plus:
+  # 配置 mapper文件的位置
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  # 配置日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true #  配置数据库表的列别名设置
+  global-config:
+    db-config:
+      table-underline: true # 驼峰方式转换
+#分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

@@ -29,4 +29,13 @@ public class PageController {
     public String money(){
         return "money";
     }
+
+    /**
+     * 跳转到股票的相关页面
+     * @return
+     */
+    @RequestMapping("/tool/stock")
+    public String stock(){
+        return "stock";
+    }
 }

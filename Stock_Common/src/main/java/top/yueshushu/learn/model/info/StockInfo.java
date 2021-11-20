@@ -19,18 +19,10 @@ public class StockInfo extends BaseModel {
     /**
      * 所属的交易所类型
      */
-    private String exchange;
-    /**
-     * 股票交易的缩写
-     */
-    private String abbreviation;
-    /**
-     * 状态 是正常的，还是处理的
-     */
-    private int state;
+    private Integer exchange;
     /**
      * 股票的类型
      */
-    private int type;
+    private String fullCode;
 
 }

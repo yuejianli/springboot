@@ -3,9 +3,18 @@ server:
   servlet:
     context-path: /
   #设置头的大小
-  max-http-header-size: 8192
+  max-http-header-size: 102400
 # 引入 数据库的相关配置
 spring:
+  jackson:
+    #参数意义：
+    #JsonInclude.Include.ALWAYS       默认
+    #JsonInclude.Include.NON_DEFAULT   属性为默认值不序列化
+    #JsonInclude.Include.NON_EMPTY     属性为 空（””） 或者为 NULL 都不序列化
+    #JsonInclude.Include.NON_NULL      属性为NULL  不序列化
+    default-property-inclusion: ALWAYS
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/fund?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
@@ -40,3 +49,6 @@ mybatis:
 #配置日志文件
 logging:
   config: classpath:log4j2spring.xml
+#配置访问stock的地址信息
+restUrl:
+  crawlerUrl: http://localhost:8082/Crawler/stock/

@@ -1,26 +1,26 @@
-package top.yueshushu.learn.stock.enumtype;
+package top.yueshushu.learn.enumtype;
 
 import org.springframework.util.Assert;
 
 /**
- * 股票名称是否更换的类型
+ * 同步股票的历史信息时,目前支持的处理时间范围
  * @author 两个蝴蝶飞
  */
-public enum NameOperationType {
-    /**
-     * 上海
-     */
-    UPDATE(1,"update"),
-    /**
-     * 深圳
-     */
-    NO_UPDATE(0,"no_update");
+public enum SyncStockHistoryType {
+    SELF(0,"自定义"),
+    WEEK(1,"一周内"),
+    MONTH(2,"一年内"),
+    YEAR(3,"一年内"),
+    THREE_YEAR(4,"三年内"),
+    FIVE_YEAR(5,"五年内"),
+    TEN_YEAR(6,"十年内"),
+    ALL(7,"全部日期");
 
     private Integer code;
 
     private String desc;
 
-    private NameOperationType(Integer code, String desc){
+    private SyncStockHistoryType(Integer code, String desc){
         this.code=code;
         this.desc=desc;
     }
@@ -30,9 +30,9 @@ public enum NameOperationType {
      * @param code
      * @return
      */
-    public static NameOperationType getNameType(int code){
+    public static SyncStockHistoryType getSyncRangeType(int code){
         Assert.notNull(code,"code编号不能为空");
-        for(NameOperationType exchangeType: NameOperationType.values()){
+        for(SyncStockHistoryType exchangeType: SyncStockHistoryType.values()){
             if(exchangeType.code.equals(code)){
                 return exchangeType;
             }

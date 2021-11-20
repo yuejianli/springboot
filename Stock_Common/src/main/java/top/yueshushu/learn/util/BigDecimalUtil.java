@@ -51,7 +51,28 @@ public class BigDecimalUtil {
         return percent.format(devide.doubleValue());
     }
 
-
+    /**
+     * 两个数相加
+     * @param bigDecimal1
+     * @param bigDecimal2
+     * @return
+     */
+    public static BigDecimal addBigDecimal(BigDecimal bigDecimal1,BigDecimal bigDecimal2){
+        Assert.notNull(bigDecimal1,"格式化的源 bigDecimal1 不能为空");
+        Assert.notNull(bigDecimal2,"格式化的源 bigDecimal2 不能为空");
+        return bigDecimal1.add(bigDecimal2);
+    }
+    /**
+     * 两个数相减
+     * @param bigDecimal1
+     * @param bigDecimal2
+     * @return
+     */
+    public static BigDecimal subBigDecimal(BigDecimal bigDecimal1,BigDecimal bigDecimal2){
+        Assert.notNull(bigDecimal1,"格式化的源 bigDecimal1 不能为空");
+        Assert.notNull(bigDecimal2,"格式化的源 bigDecimal2 不能为空");
+        return bigDecimal1.subtract(bigDecimal2);
+    }
     /**
      * 转换，成四位小数的 BigDecimal
      * @param str

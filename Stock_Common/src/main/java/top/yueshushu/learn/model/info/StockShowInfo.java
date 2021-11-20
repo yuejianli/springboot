@@ -20,9 +20,13 @@ public class StockShowInfo implements Serializable {
      */
     private String code;
     /**
+     * 股票的名称
+     */
+    private String name;
+    /**
      * 当前天
      */
-    private Date date;
+    private String date;
     /**
      * 开盘价
      */
@@ -47,6 +51,11 @@ public class StockShowInfo implements Serializable {
     private BigDecimal closingPrice;
 
     /**
+     * 当前的价格
+     */
+    private BigDecimal nowPrice;
+
+    /**
      * 成交量(股)
      */
     private long tradingVolume;
@@ -62,7 +71,7 @@ public class StockShowInfo implements Serializable {
     /**
      * 涨跌幅度百分比
      */
-    private BigDecimal amplitudeProportion;
+    private String amplitudeProportion;
     /**
      * 市盈率
      */

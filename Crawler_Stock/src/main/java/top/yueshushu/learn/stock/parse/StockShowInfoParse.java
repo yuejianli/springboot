@@ -16,5 +16,16 @@ public interface StockShowInfoParse {
      * @param elements
      * @return
      */
-    StockShowInfo parse(Elements elements);
+    default StockShowInfo parse(Elements elements){
+        return new StockShowInfo();
+    };
+
+    /**
+     * 将接口内容转换成股票展示信息，是接口方式
+     * @param content
+     * @return
+     */
+    default StockShowInfo parse(String content){
+        return new StockShowInfo();
+    };
 }

@@ -1,6 +1,7 @@
 package top.yueshushu.learn.stock.parse;
 import org.springframework.util.CollectionUtils;
 import top.yueshushu.learn.model.info.StockInfo;
+import top.yueshushu.learn.stock.entity.DownloadStockInfo;
 import top.yueshushu.learn.stock.util.ListUtil;
 
 import java.util.ArrayList;
@@ -16,8 +17,7 @@ public interface StockInfoParser {
      * @param content
      * @return
      */
-    public default List<StockInfo> parseStockInfoList(String content){
+    public default List<DownloadStockInfo> parseStockInfoList(String content){
         return Collections.EMPTY_LIST;
     };
-
 }
