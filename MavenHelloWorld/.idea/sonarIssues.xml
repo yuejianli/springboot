@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/haiziwang/zk/src/main/java/com/zk/service/impl/AsyncCheckService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/zhongmianCode/zk/src/main/java/com/zk/service/impl/PricetagServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/zhongmianCode/zk/src/main/java/com/zk/service/impl/TemplateServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/org/yueshushu/learn/controller/HelloController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

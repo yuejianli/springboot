@@ -1,0 +1,139 @@
+/**查看更多样式*/
+.see_con {
+	/* background-color: #DAE1FC; */
+	color: #00BFFF;
+	margin: 30px;
+	display: none;
+}
+
+.see_con>a {
+	color: #00BFFF;
+	margin-left: 30%;
+	cursor: pointer;
+}
+
+.see_con>a:hover {
+	color: #FF9900;
+}
+
+.see_con>a:active {
+	color: #EC7C00;	
+}
+/**滚动条*/
+.apply_con {	
+	width: 100%;
+	margin-top: 20px;
+	overflow: hidden;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	width:400px
+}
+
+.apply_records {
+	height: 100%;
+	width: 500px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.apply_scollerCN {
+	position: absolute;
+	width: 10px;
+	border-radius: 5px;
+	display: none;
+	opacity: 1;
+	background-color: rgba(0, 0, 0, 0.05);
+	left: 400px;
+	top: 100px;
+}
+
+.apply_s {
+	width: 10px;
+	height: 20px;
+	background: #13162A;
+	border-radius: 5px;
+	
+}
+
+.apply_records>.records_info {
+	displaly: table-row;
+	width: 340px;
+	height: 65px;
+	margin: 0 5px;	
+}
+
+.records_info table {	
+	width: 330px;
+	height: 60px;
+	margin: 5px 10px 10px 5px;
+	border-radius:10px;
+	box-shadow:1px 1px 2px 2px #888888;
+	cursor: pointer;
+}
+
+.records_info table tr td {
+	padding:5px;
+	border:none;
+}
+.records_info table tr {
+	padding:5px;
+	border:none;
+}
+
+.records_info table tr td i {
+	margin-right: 10px;
+	color: #a94442;
+	display: none;
+	cursor: pointer;
+}
+
+.records_info table tr td .records_color1 {
+	color: #31708f;
+}
+
+.records_info table tr td .records_color2 {
+	color: #337ab7;
+}
+
+.records_info table tr td .records_color3 {
+	color: #53C099;
+}
+
+.records_info table tr td .records_color4 {
+	color: #5BAB7E;
+}
+
+.records_info table tr td .records_color5 {
+	color: #d9534f;
+}
+
+.records_info table tr td a {
+	color: #00BFFF;
+	text-decoration: underline;
+}
+
+.records_info table:hover {	
+	border-radius:10px;
+	/* background-color: rgba(250, 250, 210, 0.1); */
+	box-shadow: 1px 1px 2px 2px #FF9900;
+}
+
+.records_info table:hover>tbody tr td i {
+	display: block;
+}
+
+.records_info table:active {
+	border-radius:10px;
+	background-color: rgba(250, 250, 0, 0.2);
+}
+.apply_active {
+	border-radius:10px;
+	background-color: rgba(250, 250, 0, 0.2);
+}
+
+.upd_close{
+	float: right;
+	margin-top:5px;
+	display:none;
+}

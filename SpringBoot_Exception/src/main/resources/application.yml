@@ -1,0 +1,27 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /Exception
+spring:
+  # 配置thymeleaf的相关信息
+  thymeleaf:
+    # 开启视图解析
+    enabled: true
+    #编码格式
+    encoding: UTF-8
+    #前缀配置
+    prefix: classpath:/templates/
+    # 后缀配置
+    suffix: .html
+    #是否使用缓存 开发环境时不设置缓存
+    cache: false
+    # 格式为 HTML 格式
+    mode: HTML5
+    # 配置类型
+    servlet:
+      content-type: text/html
+  #配置上传的文件信息
+  servlet:
+    multipart:
+      max-file-size: 100MB   # 服务器端文件大小限制
+      max-request-size: 100MB  # 客户端请求文件大小限制

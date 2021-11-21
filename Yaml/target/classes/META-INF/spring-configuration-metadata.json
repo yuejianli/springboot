@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "name": "",
+      "type": "top.yueshushu.learn.pojo.SingleInfo",
+      "sourceType": "top.yueshushu.learn.pojo.SingleInfo"
+    }
+  ],
+  "properties": [
+    {
+      "name": "addr",
+      "type": "java.lang.String",
+      "sourceType": "top.yueshushu.learn.pojo.SingleInfo"
+    },
+    {
+      "name": "age",
+      "type": "java.lang.Integer",
+      "sourceType": "top.yueshushu.learn.pojo.SingleInfo"
+    },
+    {
+      "name": "map",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "top.yueshushu.learn.pojo.SingleInfo"
+    },
+    {
+      "name": "name",
+      "type": "java.lang.String",
+      "sourceType": "top.yueshushu.learn.pojo.SingleInfo"
+    },
+    {
+      "name": "single",
+      "type": "java.lang.Boolean",
+      "sourceType": "top.yueshushu.learn.pojo.SingleInfo"
+    }
+  ],
+  "hints": []
+}

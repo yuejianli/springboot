@@ -1,0 +1,16 @@
+## 这是宏，可以理解成一个函数。
+## 声明宏   sayHello 是方法名， $name 为参数
+#macro(sayHello $name)
+    我们要讲述: $name
+#end
+
+## 使用宏
+#sayHello("周小欢和岳泽霖的故事")
+
+## 定义加法
+#macro(add $num1,$num2)
+#set($total=$num1+$num2)
+## 直接使用相加的操作，还是字符串。
+   $num1+$num2=${total}
+#end
+#add(2,3)

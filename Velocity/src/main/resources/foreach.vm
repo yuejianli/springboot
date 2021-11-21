@@ -1,0 +1,17 @@
+#[[ 放置foreach 循环语句,进行处理 ]]#
+## 放置 list或者数组 array
+#foreach ($hobby in $hobbys)
+    $hobby
+#end
+#if(${users})
+<ul>
+    #foreach($user in $users)
+        <li>${user.name}</li>
+    #end
+</ul>
+#end
+## 放置map语句
+#foreach($key in $infoMap.keySet())
+    ${key}------>${infoMap.get(${key})}
+#end
+
