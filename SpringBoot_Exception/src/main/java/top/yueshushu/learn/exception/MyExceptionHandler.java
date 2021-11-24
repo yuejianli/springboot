@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
  * @Version 1.0
  * @Since 1.0
  **/
-//@ControllerAdvice
 @RestControllerAdvice
 public class MyExceptionHandler {
     /**

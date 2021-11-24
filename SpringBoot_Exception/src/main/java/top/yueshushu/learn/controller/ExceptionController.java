@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.yueshushu.learn.exception.BusinessException;
+import top.yueshushu.learn.response.OutputResult;
 
 import java.util.List;
 
@@ -30,9 +31,9 @@ public class ExceptionController {
      */
     @RequestMapping("/div")
     @ResponseBody
-    public String div(){
+    public OutputResult div(){
         int result=10/0;
-        return "相除后的结果是:"+result;
+        return OutputResult.success(result);
     }
     /**
      * 会出现空指针异常
@@ -43,9 +44,9 @@ public class ExceptionController {
      */
     @RequestMapping("/npe")
     @ResponseBody
-    public String npe(){
+    public OutputResult npe(){
         String str=null;
-        return "字符串的长度是:"+str.length();
+        return OutputResult.success(str.length());
     }
     /**
      * 会出现下标越界异常
@@ -56,9 +57,9 @@ public class ExceptionController {
      */
     @RequestMapping("/array")
     @ResponseBody
-    public String array(){
+    public OutputResult array(){
         String[] arr=new String[]{"岳泽霖","两个蝴蝶飞"};
-        return "获取值:"+arr[arr.length];
+        return OutputResult.success(arr[arr.length]);
     }
 
 
@@ -71,12 +72,16 @@ public class ExceptionController {
      */
     @RequestMapping("/bus")
     @ResponseBody
-    public String bus() throws BusinessException {
-       //去查询数据库
-        throw new BusinessException("查询数据库失败了");
+    public OutputResult bus() throws BusinessException {
+       try{
+           int aa=10/0;
+       }catch (Exception e){
+           //去查询数据库
+           throw new BusinessException("查询数据库失败了");
+       }
+        return OutputResult.success("查询数据库成功");
+
     }
-
-
 
     /**
      * 会出现下业务型异常
@@ -87,8 +92,14 @@ public class ExceptionController {
      */
     @RequestMapping("/other")
     @ResponseBody
-    public String other() throws Exception {
+    public OutputResult other() throws Exception {
         //去查询数据库
-        throw new Exception("其他的异常信息");
+        try{
+            int aa=10/0;
+        }catch (Exception e){
+            //去查询数据库
+            throw new Exception("其他的异常信息");
+        }
+        return OutputResult.success("查询数据库成功");
     }
 }
