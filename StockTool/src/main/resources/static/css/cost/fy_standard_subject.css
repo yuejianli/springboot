@@ -1,0 +1,112 @@
+.showButton {
+	height: 34px;
+	border: 0;
+	box-sizing: border-box;
+	text-align: center;
+	text-valign: middle;
+	border-radius: 5px;
+	display: block;
+	float: left;
+	cursor: pointer;
+}
+.showButton_style {
+	width : 100%;
+	background: inherit;
+	background-color: #337AB7;
+}
+.showButton * {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.showButton .subject_text {
+	box-sizing: border-box;
+	font-family: 'MicrosoftYaHei', 'Microsoft YaHei';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    color: #ffffff;
+	margin:8px 15px;
+}
+.showButton span{
+	position: absolute;
+	top : 0px;
+	right : 18px;
+	z-index: 2;
+	width: 20px;
+	height: 20px;
+	display: none;
+	opacity: 1;
+	color: #FFFFFF;
+	/* margin-left: 110px; */
+	border-top-right-radius: 5px;
+}
+.showButton span i{
+	font-size : 13px;
+	font-weight: 300;
+	color : #ffffff;
+	margin : 0;
+	padding : 0;
+}
+
+.showButton:hover >span {
+	display:block;
+}
+.show_ul{
+	cursor: default;
+}
+/* .show_ul li span{
+	cursor: pointer;
+	display: none;
+}
+.show_ul li:hover >span{
+	display: contents;
+} */
+
+.underline_input{
+	border: none;
+	border-bottom: 1px solid #DDDDDD;
+	padding-top: 7px;
+	padding-left: 7px;
+}
+.panel-heading{
+	cursor: pointer;
+}
+.span-left{
+	float: left;
+	margin-left: 15px;
+}
+.span-right{
+	float: right;
+	margin-right: 15px;
+}
+.tr-bg{
+	background-color: #dddddd;
+}
+.show_ul{
+	margin-bottom:0px;
+	padding-left: 15px;
+}
+
+.upd{
+	cursor: pointer;
+}
+.delete{
+	text-decoration: line-through;	
+}
+
+/* ²Ù×÷°´Å¥ */
+.operate_button{
+	width: 20xp;
+	height: 20px;
+}
+.operate_button:hover {
+	filter:brightness(0.5);
+	cursor: pointer;
+}
+.datetimepicker-months{
+	width:220px;
+}
+div.datetimepicker div:nth-child(4) > table:nth-child(1){
+	width:220px;
+}

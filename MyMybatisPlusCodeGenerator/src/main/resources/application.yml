@@ -1,0 +1,48 @@
+server:
+  port: 8091
+  servlet:
+    context-path: /mp
+# 指定目录
+outFilePath: /temp/TempMP/
+# 引入 数据库的相关配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mpcode?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: mpcode
+    password: mpcode
+    type: com.alibaba.druid.pool.DruidDataSource
+  # 配置thymeleaf的相关信息
+  thymeleaf:
+    # 开启视图解析
+    enabled: true
+    #编码格式
+    encoding: UTF-8
+    #前缀配置
+    prefix: classpath:/templates/
+    # 后缀配置
+    suffix: .html
+    #是否使用缓存 开发环境时不设置缓存
+    cache: false
+    # 格式为 HTML 格式
+    mode: HTML5
+    # 配置类型
+    servlet:
+      content-type: text/html
+  #配置上传的文件信息
+  servlet:
+    multipart:
+      max-file-size: 100MB   # 服务器端文件大小限制
+      max-request-size: 100MB  # 客户端请求文件大小限制
+#整合mybatis时使用的。   去掉整合 MyBatis的配置信息
+mybatis-plus:
+  # 配置 mapper文件的位置
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  # 配置日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true #  配置数据库表的列别名设置
+  global-config:
+    db-config:
+      table-underline: true # 驼峰方式转换
+

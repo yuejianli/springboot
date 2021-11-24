@@ -1,0 +1,54 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /
+  #设置头的大小
+  max-http-header-size: 102400
+# 引入 数据库的相关配置
+spring:
+  jackson:
+    #参数意义：
+    #JsonInclude.Include.ALWAYS       默认
+    #JsonInclude.Include.NON_DEFAULT   属性为默认值不序列化
+    #JsonInclude.Include.NON_EMPTY     属性为 空（””） 或者为 NULL 都不序列化
+    #JsonInclude.Include.NON_NULL      属性为NULL  不序列化
+    default-property-inclusion: ALWAYS
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/fund?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: fund
+    password: fund
+    type: com.alibaba.druid.pool.DruidDataSource
+  # 配置thymeleaf的相关信息
+  thymeleaf:
+    # 开启视图解析
+    enabled: true
+    #编码格式
+    encoding: UTF-8
+    #前缀配置
+    prefix: classpath:/templates/
+    # 后缀配置
+    suffix: .html
+    #是否使用缓存 开发环境时不设置缓存
+    cache: false
+    # 格式为 HTML 格式
+    mode: HTML5
+    # 配置类型
+    servlet:
+      content-type: text/html
+mybatis:
+  #包别名
+  type-aliases-package: top.yueshushu.learn.pojo
+  #映射文件路径
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  configuration:
+    #日志信息
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#配置日志文件
+logging:
+  config: classpath:log4j2spring.xml
+#配置访问stock的地址信息
+restUrl:
+  crawlerUrl: http://localhost:8082/Crawler/stock/
