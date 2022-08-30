@@ -102,7 +102,7 @@ public class MybatisPlusCodeGeneratorSelfUtil {
         /**
            处理 controller 文件
          */
-       String templatePath="/ftl/self/controller.java.ftl";
+       String templatePath="/ftl/mybatisplus/controller.java.ftl";
        fileOutConfigList.add(
                new FileOutConfig(templatePath) {
                    @Override
@@ -117,7 +117,7 @@ public class MybatisPlusCodeGeneratorSelfUtil {
         /**
          处理 service 文件
          */
-         templatePath="/ftl/self/service.java.ftl";
+         templatePath="/ftl/mybatisplus/service.java.ftl";
         fileOutConfigList.add(
                 new FileOutConfig(templatePath) {
                     @Override
@@ -132,7 +132,7 @@ public class MybatisPlusCodeGeneratorSelfUtil {
         /**
          处理 serviceImpl 文件
          */
-        templatePath="/ftl/self/serviceImpl.java.ftl";
+        templatePath="/ftl/mybatisplus/serviceImpl.java.ftl";
         fileOutConfigList.add(
                 new FileOutConfig(templatePath) {
                     @Override
@@ -148,7 +148,7 @@ public class MybatisPlusCodeGeneratorSelfUtil {
         /**
          处理 entity 文件
          */
-        templatePath="/ftl/self/entity.java.ftl";
+        templatePath="/ftl/mybatisplus/entity.java.ftl";
         fileOutConfigList.add(
                 new FileOutConfig(templatePath) {
                     @Override
@@ -164,7 +164,7 @@ public class MybatisPlusCodeGeneratorSelfUtil {
         /**
          处理 mapper 文件
          */
-        templatePath="/ftl/self/mapper.java.ftl";
+        templatePath="/ftl/mybatisplus/mapper.java.ftl";
         fileOutConfigList.add(
                 new FileOutConfig(templatePath) {
                     @Override
@@ -180,7 +180,7 @@ public class MybatisPlusCodeGeneratorSelfUtil {
         /**
          处理 xml 文件
          */
-        templatePath="/ftl/self/mapper.xml.ftl";
+        templatePath="/ftl/mybatisplus/mapper.xml.ftl";
         fileOutConfigList.add(
                 new FileOutConfig(templatePath) {
                     @Override

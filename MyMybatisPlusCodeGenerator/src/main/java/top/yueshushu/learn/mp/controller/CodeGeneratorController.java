@@ -61,7 +61,7 @@ public class CodeGeneratorController {
      * 执行相应的sql信息，保存到临时数据库里面
      * @date 2021/11/17 17:45
      * @author zk_yjl
-     * @param sql
+     * @param codeGeneratorRequestRo
      * @return top.yueshushu.learn.mp.response.OutputResult
      */
     @PostMapping("/execSql")
