@@ -46,9 +46,7 @@ public class User implements Serializable {
 
     /*处理标识位*/
     @TableField(value="flag",fill = FieldFill.INSERT)
-    @TableLogic
-    /*@TableField(value="flag",fill = FieldFill.INSERT)
-    @TableLogic(value = "1",delval = "0")*/
+    @TableLogic(value = "1",delval = "0")
     private Integer flag;
 }
 
