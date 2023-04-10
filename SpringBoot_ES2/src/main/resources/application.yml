@@ -1,0 +1,54 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /ES
+# 引入 数据库的相关配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://www.yueshushu.top:3306/mpcode?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: Xxx
+    type: com.alibaba.druid.pool.DruidDataSource
+  # 配置thymeleaf的相关信息
+  thymeleaf:
+    # 开启视图解析
+    enabled: true
+    #编码格式
+    encoding: UTF-8
+    #前缀配置
+    prefix: classpath:/templates/
+    # 后缀配置
+    suffix: .html
+    #是否使用缓存 开发环境时不设置缓存
+    cache: false
+    # 格式为 HTML 格式
+    mode: HTML5
+    # 配置类型
+    servlet:
+      content-type: text/html
+#整合mybatis时使用的
+mybatis-plus:
+  # 配置 mapper文件的位置
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  # 配置日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true #  配置别名设置
+  global-config:
+    db-config:
+      logic-delete-field: flag   # 逻辑删除的字段
+      logic-not-delete-value: 1  # 正常状态下，该字段的值
+      logic-delete-value: 0      # 删除后，该字段的值
+      table-underline: true # 驼峰方式转换
+#分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+elasticsearch:
+  host: 127.0.0.1
+  port: 9200
+
+
