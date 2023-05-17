@@ -1,0 +1,38 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /Redis
+# 引入 数据库的相关配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.100.148:3306/yjl?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: ENC(wmbD8o306iMHnvQod9okO7CLRpexQRKFr0TnArbPsylPbL16GbTuOWcvmXO0Wt1I)
+    password: ENC(3g54cakQlvCz7vrQg7N33gMxjxDaWRoDTWRKornSl3gXw53z5ArvYh2ue8XeH8o3)
+  # 配置Redis的使用
+  redis:
+    database: 15 # 所使用的数据库  默认是0
+    host: 192.168.100.148  #所使用的redis的主机地址
+    port: 6379  # 端口号  默认是 6379
+    password: ENC(jhKikeQprcspnieaPPJMHUSlSEnU3eEeIOAk7jX2WDUrOiT1QZN4ztFLloTXAxBN) # 密码
+    timeout: 5000 # 超时时间  5000毫秒
+    # 连接池 lettuce 的配置
+    lettuce:
+      pool:
+        max-active: 100
+        min-idle: 10
+        max-wait: 100000
+#整合mybatis时使用的
+mybatis:
+  #包别名
+  type-aliases-package: top.yueshushu.learn.pojo
+  #映射文件路径
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  configuration:
+    #日志信息
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# 配置文件加密解密
+jasypt:
+  encryptor:
+    # 去掉 password 配置
+    bean: CodeEncrypBean
