@@ -1,0 +1,22 @@
+##日志级别
+#logging:
+#  # 日志级别
+#  level:
+#    # 默认配置
+#    root: info
+#    # 对某个包进行配置
+#    top.yueshushu: debug
+#  file:
+#    # 日志输出位置
+#    path: /usr/yjl/log
+#  pattern:
+#    # 控制台打印格式
+#    console: '%d{yyyy-MM-dd hh:mm:ss} [%thread] %-5level %logger{50} - %msg%n'
+#    # 文件打印格式
+#    file: '%d{yyyy-MM-dd} === [%thread] === %-5level === %logger{50} === - %msg%n'
+logback:
+  contextName: yjl
+  logPath: /usr/yjl/log
+spring:
+  profiles:
+    active: dev
