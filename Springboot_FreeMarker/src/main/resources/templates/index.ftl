@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Welcome ${web} </title>
+    <link rel="StyleSheet" href="webjars/bootstrap/3.4.1/css/bootstrap.css" type="text/css">
+</head>
+<body class="container">
+<h1>Welcome ${user}!</h1>
+<p>Girl:
+    <a href="${info.url}">${info.name}</a>!
+<table class="table table-hover">
+    <th>
+    <td>id编号</td>
+    <td>名称</td>
+    <td>年龄</td>
+    <td>性别</td>
+    <td>描述</td>
+    </th>
+    <#if userList??>
+        <#list userList as u>
+            <tr>
+                <td></td>
+                <td>${u.id}</td>
+                <td>${u.name}</td>
+                <td>${u.age}</td>
+                <td><#if u.sex==1>男<#else>女</#if></td>
+                <td>${u.description}</td>
+            </tr>
+        </#list>
+    <#-- 如果为空的话， #else 表示为空的意义-->
+    <#else>
+        <tr>
+            没有数据
+        </tr>
+    </#if>
+</table>
+<script type="text/javascript" src="webjars/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.4.1/js/bootstrap.js"></script>
+</body>
+</html>

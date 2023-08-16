@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/lcd/zk/src/main/java/com/zk/controller/ShelvesController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/lcd/zk/src/main/java/com/zk/model/vo/ShelvesPriceVo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/lcd/zk/src/main/java/com/zk/service/impl/ShelvesServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/lcd/zk/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/top/yueshushu/learn/service/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/top/yueshushu/learn/service/UserServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/top/yueshushu/learn/IdTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/top/yueshushu/learn/QueryJdbcApplicationTests.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

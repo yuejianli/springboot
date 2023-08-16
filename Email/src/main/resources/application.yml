@@ -1,0 +1,21 @@
+spring:
+  # 配置发送邮件# 配置发送邮件
+  mail:
+    host: smtp.qq.com # smtp.qq.com 对应的ip
+    username: xxx@qq.com
+    password: xxx
+    port: 465
+    default-encoding: utf-8
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+            socketFactory:
+              port: 465
+              class: javax.net.ssl.SSLSocketFactory

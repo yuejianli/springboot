@@ -1,0 +1,28 @@
+<!doctype html>
+<!--注意：引入thymeleaf的名称空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type"content="text/html;charset=UTF-8">
+    <title>文件上传</title>
+    <link rel="StyleSheet" href="webjars/bootstrap/3.4.1/css/bootstrap.css" type="text/css">
+</head>
+<body class="container">
+<p class="h1">上传文件</p>
+<form  action="upload" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="file" name="file">
+            <label class="file-label" for="file">选择文件</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">上传</button>
+</form>
+
+<p class="h1">文件下载</p>
+
+<a href="download?fileName=yjl.p12">文件下载 yjl.p12</a>
+
+<script type="text/javascript" src="webjars/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.4.1/js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# 将以前的配置去除
+#server:
+#  port: 8027
+#  servlet:
+#    context-path: /Yue
+spring:
+  profiles:
+    active: dev   # 指定要使用哪一个环境
+
+---
+server:
+  port: 8081
+  servlet:
+    context-path: /Yue1
+spring:
+  profiles: dev  # 用 spring.profiles 设置配置文件的名称,是开发环境
+---
+server:
+  port: 8082
+  servlet:
+    context-path: /Yue2
+spring:
+  profiles: test  # 用 spring.profiles 设置配置文件的名称,是测试环境
+---
+server:
+  port: 8083
+  servlet:
+    context-path: /Yue3
+spring:
+  profiles: proc  # 用 spring.profiles 设置配置文件的名称,是生产环境
+

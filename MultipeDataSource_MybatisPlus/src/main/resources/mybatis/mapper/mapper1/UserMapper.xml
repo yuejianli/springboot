@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.yueshushu.learn.mapper.mapper1.UserMapper">
+    <insert id="batchAdd">
+        insert into user(name,sex,age,description) values
+        <foreach collection="userList" item="user" open="" close="" separator=",">
+            (#{user.name},#{user.sex},#{user.age},#{user.description})
+        </foreach>
+    </insert>
+</mapper>
+

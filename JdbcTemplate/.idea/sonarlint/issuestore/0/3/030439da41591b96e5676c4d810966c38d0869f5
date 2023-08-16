@@ -1,0 +1,19 @@
+
+x
+java:S1488n"[Immediately return this expression instead of assigning it to the temporary variable "map".(ù‹·—8ÉØÌ¸/
+i
+java:S1192Q"LDefine a constant instead of duplicating this literal "description" 4 times.(ñş 8‡®¹/
+y
+java:S1488H"\Immediately return this expression instead of assigning it to the temporary variable "user".(Ö–úÎ8á—¤¸/
+G
+java:S1135"2Complete the task associated to this TODO comment.(£°§\
+z
+java:S1488|"^Immediately return this expression instead of assigning it to the temporary variable "idList".(Òñ‹98âŸ¾¾/
+~
+java:S1488‰"`Immediately return this expression instead of assigning it to the temporary variable "userList".(Úå‹Å8­Ë¾/
+
+java:S1192Z"nDefine a constant instead of duplicating this literal "select id,name,sex,age,description from user " 3 times.(ÃôŸıÿÿÿÿ8•¶º¹/
+z
+java:S1488u"]Immediately return this expression instead of assigning it to the temporary variable "count".(ÅÜœî8ª‚Û¸/
+‚
+java:S1488["`Immediately return this expression instead of assigning it to the temporary variable "userList".(‘áé÷ÿÿÿÿÿ8…Ø½¸/

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/haiziwang/zk/src/main/resources/com/zk/mapper/CheckRecordMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/lcd/zk/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/lcd/zk/src/main/java/com/zk/common/ResultCode.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/lcd/zk/src/main/java/com/zk/util/FastDFSClient.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/lcd/zk/src/main/resources/application-47.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/lcd/zk/src/main/resources/application-self.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/lcd/zk/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/code/zhongmianCode/zk/src/main/java/com/zk/service/impl/ItemServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/top/yueshushu/learn/MyBatisApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/top/yueshushu/learn/controller/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/top/yueshushu/learn/mapper/UserMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/top/yueshushu/learn/service/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/top/yueshushu/learn/service/UserServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/application.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/log4j.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/log4j.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/logback-spring.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/logback.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/mybatis/mapper/UserMapper.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/top/yueshushu/learn/MyBatisTests.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

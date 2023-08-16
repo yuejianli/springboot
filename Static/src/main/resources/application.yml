@@ -1,0 +1,25 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /Static
+# 引入 数据库的相关配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: abc123
+    type: com.alibaba.druid.pool.DruidDataSource
+  #配置资源信息
+  mvc:
+    static-path-pattern: /**    # 原先的会清除掉
+  resources:
+    static-locations: [classpath:/templates,classpath:/s1,classpath:/s2,classpath:/public,classpath:/static]   # 配置多个
+mybatis:
+  #包别名
+  type-aliases-package: top.yueshushu.learn.pojo
+  #映射文件路径
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  configuration:
+    #日志信息
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

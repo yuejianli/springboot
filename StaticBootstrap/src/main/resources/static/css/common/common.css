@@ -1,0 +1,101 @@
+.pointer{
+	cursor: pointer;
+}
+
+/* 下横线input框 */
+.underline_input{
+	border: none;
+	border-bottom: 1px solid #ccc;	
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border-radius: 0px;
+}
+.underline_input:focus {
+	border-bottom-color: #66afe9;
+	border-radius: 4px;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.underline_input[disabled]{
+	cursor: not-allowed;
+}
+
+/* 无框线input框 */
+.noborder_input{
+	border: none;
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+}
+
+/* 日期input框 */
+.date_input{
+	border: 1px solid #ccc;
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+
+/* tooltip信息居左 */
+.tooltip-inner {
+	text-align: left;
+}
+
+/* 月份 */
+.datetimepicker-months{
+	width:220px;
+}
+div.datetimepicker div:nth-child(4) > table:nth-child(1){
+	width:220px;
+}
+
+/* 无背景颜色 */
+.no-bg{
+	background-color: white;
+}
+
+/* 操作按钮 */
+.operate_button{
+	width: 20xp;
+	height: 20px;
+	cursor: pointer;
+}
+.operate_button:hover {
+	filter:brightness(0.5);
+	animation: imgBright 0.5s;
+	-moz-animation: imgBright  0.5s; /* Firefox */
+	-webkit-animation: imgBright  0.5s; /* Safari and Chrome */
+	-o-animation: imgBright  0.5s; /* Opera */
+}
+
+@keyframes imgBright{
+	0%{
+		-webkit-filter:brightness(100%)
+	}
+	100%{
+		-webkit-filter:brightness(50%)
+	}
+}

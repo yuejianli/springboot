@@ -1,0 +1,26 @@
+## 放置if
+##  可以使用条件表达式，进行处理。
+#if(${age}>120)
+年龄输入错误
+#end
+你的性别是:
+#if(${sex}=='男')
+  男性
+#else
+   女性
+#end
+你的成绩是:
+#if(${score}>90)
+   优
+#elseif(${score}>80)
+   良
+#elseif(${score}>70)
+    中
+#elseif(${score}>60)
+    及
+#else
+    差
+#end
+
+
+

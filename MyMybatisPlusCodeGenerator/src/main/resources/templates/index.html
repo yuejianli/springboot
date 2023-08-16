@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动生成MybatisPlus代码</title>
+
+    <link rel="StyleSheet" href="webjars/bootstrap/3.4.1/css/bootstrap.css" type="text/css">
+    <link rel="StyleSheet" href="static/plugins/bootstrap-table/bootstrap-table.min.css" type="text/css"/>
+    <link rel="StyleSheet" href="static/plugins/bootstrap-select/bootstrap-select.min.css" type="text/css"/>
+    <link rel="StyleSheet" href="static/plugins/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="StyleSheet" href="static/plugins/flavr/flavr.css" type="text/css"/>
+    <link rel="StyleSheet" href="static/plugins/bootstrap-table/bootstrap-table.min.css" type="text/css"/>
+    <link rel="StyleSheet" href="static/css/common/common.css" type="text/css"/>
+    <link rel="StyleSheet" href="index.css" type="text/css"/>
+    <link rel="icon" href="static/favicon.ico" type="image/x-icon"/>
+    <link rel="bookmark" href="static/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+<div class="container">
+    <div class="row" style="margin-top:10px;">
+        <div class="span12">
+            <div class="col-sm-offset-2 col-sm-1">
+                <img alt="Log" src="static/self.jpg" width="50px" height="50px"/>
+            </div>
+            <div class="span6" style="padding-top:10px">
+                <span class="htitle">
+                    MyBatisPlus 代码自动生成
+                </span>
+            </div>
+        </div>
+    </div>
+        <div class="row mar30">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="span12">
+                            <blockquote>
+                                <p>
+                                    <span class="ctitle">*</span> 项目
+                                </p>
+                            </blockquote>
+                            <div class="form-group mar30 pad30">
+                                <label class="col-sm-4 control-label">项目名:</label>
+                                <div class="col-sm-6 ">
+                                    <input type="text" id="projectName" class="form-control" value="MPGenerator"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="form-group mar30 pad30">
+                                <label class="col-sm-4 control-label">包名:</label>
+                                <div class="col-sm-6 ">
+                                    <input type="text" id="packageName" class="form-control" value="top.yueshushu"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                            <blockquote>
+                                <p>
+                                    <span class="ctitle">*</span> 数据库配置
+                                </p>
+                            </blockquote>
+                            <div class="row form-group" style="margin-left:30px;">
+                                <label class="col-sm-4 control-label">类型:</label>
+                                <div class="col-sm-4">
+                                    <select class='type selectpicker show-tick' id="dbTypeName"
+                                            data-size="10" disabled
+                                            data-width="100%" data-style="btn-primary">
+                                        <option value="1" selected>Mysql</option>
+                                        <option value="2">Oracle</option>
+                                        <option value="3">SqlServer</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="tabbable" style="margin-left:30px;" id="tabs-288861">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#dbConfig" data-toggle="tab">数据库自定义配置</a>
+                                    </li>
+                                    <li>
+                                        <a href="#sqlConfig" data-toggle="tab">填充SQL语句</a>
+                                    </li>
+                                </ul>
+                                <input type="hidden" id="databaseSource" value="1">
+                                <br/> <br/>
+                                <div class="tab-content mar30">
+                                    <div class="tab-pane active" id="dbConfig">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">服务器地址:</label>
+                                                <div class="col-sm-6 ">
+                                                    <input type="text" id="host" class="form-control" value="127.0.0.1"/>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">端口号:</label>
+                                                <div class="col-sm-6 ">
+                                                    <input type="text" id="port" class="form-control" value="3306"/>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">数据库:</label>
+                                                <div class="col-sm-6 ">
+                                                    <input type="text" id="dbName" class="form-control" value="mpcode"/>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">用户名:</label>
+                                                <div class="col-sm-6 ">
+                                                    <input type="text" id="username" class="form-control" value="mpcode"/>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">密码:</label>
+                                                <div class="col-sm-6 ">
+                                                    <input type="text" id="password" class="form-control" value="mpcode"/>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div class="form-group mar30">
+                                                <div class="pull-right">
+                                                    <button class="btn btn-large btn-primary" type="button"
+                                                            id="sqlConnection">测试连接</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="sqlConfig">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">自定义SQL语句:</label>
+                                            <div class="col-sm-9">
+                                                <textarea class="form-control" id="selfSql"
+                                                rows="7">
+                                                    CREATE TABLE `user` (
+                                                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                                                      `name` varchar(15) DEFAULT NULL,
+                                                      `sex` varchar(20) DEFAULT NULL,
+                                                      `age` int(6) DEFAULT NULL,
+                                                      `description` varchar(50) DEFAULT NULL,
+                                                      `account` varchar(100) DEFAULT NULL,
+                                                      `password` varchar(100) DEFAULT NULL,
+                                                      PRIMARY KEY (`id`),
+                                                      UNIQUE KEY `user_un_account` (`account`)
+                                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mar30">
+                                           <div class="pull-right mar30">
+                                               <br/>
+                                               <button class="btn btn-large btn-primary" type="button" id="sqlCode">执行SQL
+                                                   语句</button>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="panel-group" id="other_config" style="margin-left:80px;">
+                        <div class="row mar15 panel panel-default">
+                            <div class="panel-heading">
+                                <a class="panel-title collapsed" data-toggle="collapse" data-parent="#other_config"
+                                   href="#other_config_project">
+                                    <span class="ctitle">项目配置</span>
+                                </a>
+                            </div>
+                            <div id="other_config_project" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="form-group mar15 pad30">
+                                        <label class="col-sm-4 control-label">作者:</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" id="author" value="两个蝴蝶飞"></input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row panel panel-default mar15">
+                            <div class="panel-heading">
+                                <a class="panel-title collapsed" data-toggle="collapse" data-parent="#other_config"
+                                   href="#other_config_table">
+                                    <span class="ctitle"> 表配置</span>
+                                </a>
+                            </div>
+                            <div id="other_config_table" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="row form-group mar15 pad30">
+                                        <label class="col-sm-4 control-label">包含表名:</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" id="tableNames"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">表前缀:</label>
+                                        <div class="col-sm-8 ">
+                                            <input type="text" id="tablePrefixes" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">字段前缀:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="fieldPrefixes" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">排除的表名:</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" id="excludeTableNames"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">忽略的字段:</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" id="ignoreColumns"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row panel panel-default mar15">
+                            <div class="panel-heading">
+                                <a class="panel-title collapsed" data-toggle="collapse" data-parent="#other_config"
+                                   href="#other_config_package">
+                                    <span class="ctitle">包名配置</span>
+                                </a>
+                            </div>
+                            <div id="other_config_package" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="row form-group mar15 pad30">
+                                        <label class="col-sm-4 control-label">实体类:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="packageEntity" class="form-control" value="entity"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">mapper:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="packageMapper" class="form-control" value="mapper"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">mapper xml:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="packageMapperXml" class="form-control" value="mapper"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">service:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="packageService" class="form-control" value="service"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">service.impl:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="packageServiceImpl" class="form-control" value="service.impl"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">controller:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="packageController" class="form-control" value="controller"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row panel panel-default mar15">
+                            <div class="panel-heading">
+                                <a class="panel-title collapsed" data-toggle="collapse" data-parent="#other_config"
+                                   href="#other_config_file">
+                                    <span class="ctitle">文件名配置(%s开头)</span>
+                                </a>
+                            </div>
+                            <div id="other_config_file" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="row form-group pad30 mar15">
+                                        <label class="col-sm-4 control-label">实体类:</label>
+                                        <div class="col-sm-8 ">
+                                           <input type="text" id="fileNamePatternEntity" class="form-control" value="%s"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">mapper:</label>
+                                        <div class="col-sm-8 ">
+                                           <input type="text" id="fileNamePatternMapper" class="form-control" value="%sMapper"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">mapper xml:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="fileNamePatternMapperXml" class="form-control" value="%sMapper.xml"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">service:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="fileNamePatternService" class="form-control" value="%sService"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">service.impl:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="fileNamePatternServiceImpl" class="form-control" value="%sServiceImpl"/>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group pad30">
+                                        <label class="col-sm-4 control-label">controller:</label>
+                                        <div class="col-sm-8 ">
+                                            <input type="text" id="fileNamePatternController" class="form-control" value="%sController"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row panel panel-default mar15">
+                            <div class="panel-heading">
+                                <a class="panel-title collapsed" data-toggle="collapse" data-parent="#other_config"
+                                   href="#other_config_xml">
+                                    <span class="ctitle">xml配置</span>
+                                </a>
+                            </div>
+                            <div id="other_config_xml" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="row form-group mar30" style="margin-left:30px;">
+                                        <label class="col-sm-6 control-label">生成BaseResultMap:</label>
+                                        <div class="col-sm-6">
+                                            <select class='type selectpicker show-tick' id="baseMapper"
+                                                    data-size="10"
+                                                    data-width="100%" data-style="btn-primary">
+                                                <option value="1" selected>生成</option>
+                                                <option value="0">不生成</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group" style="margin-left:30px;">
+                                        <label class="col-sm-6 control-label">生成BaseColumnList:</label>
+                                        <div class="col-sm-6">
+                                            <select class='type selectpicker show-tick' id="baseColumn"
+                                                    data-size="10"
+                                                    data-width="100%" data-style="btn-primary">
+                                                <option value="1" selected>生成</option>
+                                                <option value="0">不生成</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row" style="margin-top:50px;">
+                <div class="col-sm-offset-4">
+                    <button class="btn btn-large btn-success" type="button" id="autoCode">自动生成</button>
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="" id="downFile">下载代码</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="webjars/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.4.1/js/bootstrap.js"></script>
+<script type="text/javascript" src="static/plugins/bootstrap-table/bootstrap-table.js"></script>
+<script type="text/javascript" src="static/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="static/plugins/flavr/flavr.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>

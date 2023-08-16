@@ -1,0 +1,14 @@
+package ${packageName};
+/**
+@author: ${author}
+@Date: ${createDate}
+@Description: ${classDescription}
+*/
+public class ${className}{
+/**
+功能描述: ${mainMethodDesc}
+*/
+public static void main(String []args){
+    System.out.println("${info}");
+    }
+}

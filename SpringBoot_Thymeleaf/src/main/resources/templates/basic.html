@@ -1,0 +1,31 @@
+<!doctype html>
+<!--注意：引入thymeleaf的名称空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type"content="text/html;charset=UTF-8">
+    <title>Welcome <span th:text="${title}"/></title>
+    <link rel="StyleSheet" th:href="@{webjars/bootstrap/3.4.1/css/bootstrap.css}" type="text/css">
+</head>
+<body class="container">
+<h1>th:text 展示普通的文本信息</h1>
+<h2>我的名字是: <span th:text="${name}"/></h2>
+<h2>我的朋友的名字是: <span th:text="${girlName}"/> </h2>
+<h3>id的编号是: <span th:id="${id}"/></h3>
+<h1>展示HTML信息:</h1>
+<h2>用 text展示HTML文本: <span th:text="${utext}"/></h2>
+<h2>用 utext 展示HTML文本: <span th:utext="${utext}"/></h2>
+<h1>展示回显输入框的值:
+    年龄: <input type="text" th:value="${age}"/> </h1>
+我的描述:
+ <textarea>
+     <th:block th:text="${inputValue}">
+     </th:block>
+ </textarea>
+<h1>展示链接信息</h1>
+我的CSDN网址 <a th:href="@{${href}}"> CSDN网址</a>
+    <h1>展示src的信息</h1>
+    <img th:src="@{static/self.jpg}" th:width="200px" th:height="200px"/>
+<script type="text/javascript" th:src="@{webjars/jquery/3.5.1/jquery.js}"></script>
+<script type="text/javascript" th:src="@{webjars/bootstrap/3.4.1/js/bootstrap.js}"></script>
+</body>
+</html>

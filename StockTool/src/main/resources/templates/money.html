@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票小工具-计算金额</title>
+
+    <link rel="StyleSheet" href="../webjars/bootstrap/3.4.1/css/bootstrap.css" type="text/css">
+    <link rel="StyleSheet" href="../static/plugins/bootstrap-table/bootstrap-table.min.css" type="text/css"/>
+    <link rel="StyleSheet" href="../static/plugins/bootstrap-select/bootstrap-select.min.css" type="text/css"/>
+    <link rel="StyleSheet" href="../static/plugins/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="StyleSheet" href="../static/plugins/flavr/flavr.css" type="text/css"/>
+    <link rel="StyleSheet" href="../static/plugins/bootstrap-table/bootstrap-table.min.css" type="text/css"/>
+    <link rel="StyleSheet" href="../static/css/common/common.css" type="text/css"/>
+ <style type="text/css">
+     .info-height{
+         height:40px;
+     }
+     .focus-info{
+         font-size:18px;
+         color:red;
+     }
+ </style>
+</head>
+<body class="page-bg container">
+<p class="mar-hor">
+<h2 style="color:#EC7C00">计算金额小工具</h2>
+<hr/>
+<div class="modal-body row col-sm-5">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">股票代码:</label>
+            <div class="col-sm-6">
+                <input type="text" class="underline_input" id="code" value="sz002415"/>
+            </div>
+        </div>
+        <div class="form-group" style="height:50px;margin-right:50px;">
+            <div class="col-sm-offset-11">
+                <button type="button" class="btn btn-info" id="show">查看走势图</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">买入时价位:</label>
+            <div class="col-sm-6">
+                <input type="text" class="underline_input" id="price" value="50.810"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">买入股票数(整百):</label>
+            <div class="col-sm-6">
+                <input type="text" class="underline_input" id="number" value="100"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">证券平台佣金比例(%):</label>
+            <div class="col-sm-6">
+                <input type="text" class="underline_input" id="platform_fee" value="0.03"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">是否更换了户名:</label>
+            <div class="col-sm-6">
+                <select class='type selectpicker show-tick' id="nameType"
+                        data-size="10"
+                        data-width="100%" data-style="btn-primary" disabled>
+                    <option value="0" selected>未更换</option>
+                    <option value="1">更换</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">交易时所用方式:</label>
+            <div class="col-sm-6">
+                <select class='type selectpicker show-tick' id="tradingArea"
+                        data-size="10"
+                        data-width="100%" data-style="btn-primary">
+                    <option value="0" selected>网络委托</option>
+                    <option value="1" >电话委托-上海,深圳交易所</option>
+                    <option value="2">电话委托-非上海,深圳交易所</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">(>=)填写预期所赚:</label>
+            <div class="col-sm-5">
+                <input type="text" class="underline_input" id="make_money" value="56.85"/>
+            </div>
+            <div class="row">
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-success" id="money_submit">
+                预期金额计算
+            </button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">(>=)填写预期价位:</label>
+            <div class="col-sm-5">
+                <input type="text" class="underline_input" id="make_price" value="51.530"/>
+            </div>
+            <div class="row">
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-success"
+                                                             id="price_submit">预期价位计算
+            </button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">(>=)填写预期比例(%):</label>
+            <div class="col-sm-5">
+                <input type="text" class="underline_input" id="make_proportion" value="1.12"/>
+            </div>
+            <div class="row">
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-success"
+                                                             id="proportion_submit">预期比例计算
+            </button>
+            </div>
+        </div>
+        <div class="form-group">
+        </div>
+        <div class="form-group" style="margin-top: 40px;">
+            <div class="row col-sm-offset-5">
+                <button type="button" class="btn btn-default" id="reset">重置</button>
+                &nbsp;&nbsp;&nbsp;
+                <a class="btn btn-lg btn-primary" href="../" role="button">返回首页</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- 查看分钟级别的K线图 -->
+<div class="modal fade" id="min_popup" data-cache-form="true">
+    <div class="modal-dialog" style="width: 65%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×</button>
+                <h4 class="modal-title text-semibold text-primary text-center">查看股票信息和分钟K线图</h4>
+            </div>
+            <div class="modal-body mar-hor">
+                <div class="row" style="margin-left:150px;">
+                    <table class="table table-no-bordered" id="showInfo">
+                        <tr>
+                            <td>代码:</td> <td> <span id="showCode" class="info"></span></td>
+                            <td>名称:</td> <td> <span id="name" class="info"></span></td>
+                        </tr>
+                        <tr>
+                            <td>开盘价:</td> <td>  <span id="openingPrice" class="info focus-info"></span></td>
+                            <td>昨天收盘价:</td> <td>   <span id="yesClosingPrice" class="info focus-info"></span></td>
+                        </tr>
+                        <tr>
+                            <td>最高价格:</td> <td>   <span id="highestPrice" class="info focus-info"></span></span></td>
+                            <td>最低价格:</td> <td>    <span id="lowestPrice" class="info focus-info"></span></td>
+                        </tr>
+                        <tr>
+                            <td>当前的价格:</td> <td>     <span id="nowPrice" class="info focus-info"></span></span></td>
+                            <td>今天收盘价:</td> <td>     <span id="closingPrice"
+                                                           class="info focus-info focus-info"></span></td>
+                        </tr>
+                        <tr>
+                            <td>成交量(股):</td> <td>   <span id="tradingVolume" class="info focus-info"></span></span></td>
+                            <td>成交量金额:</td> <td>    <span id="tradingValue" class="info focus-info"></span></td>
+                        </tr>
+                        <tr>
+                            <td>涨跌幅度:</td> <td>   <span id="amplitude" class="info focus-info"></span></span></td>
+                            <td>涨跌幅度百分比:</td> <td>    <span id="amplitudeProportion" class="info focus-info"></span></td>
+                        </tr>
+                        <tr>
+                            <td>市盈率:</td> <td>   <span id="peRatio" class="info"></span></span></td>
+                            <!--其他的展示信息-->
+                        </tr>
+                    </table>
+                </div>
+                <div class="row fix-center">
+                    <img src="" id="k_min" style="margin-left:260px;height: 400px;" height="400px;">
+                </div>
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="border:1px solid red;float:left;width:2px;height:700px;margin-left:60px;">
+
+</div>
+<div class="modal-body row col-sm-offset-6">
+    <div class="row" style="height:360px;">
+        <div class="form-group" style="margin-bottom: 30px;">
+            <p style="font-size: 18px;color: deeppink">手续费信息:</p>
+        </div>
+        <div class="row">
+            <table class="table table-no-bordered">
+                <tr>
+                    <td>买入手续费:</td> <td> <span id="buyCharge" class="info"></span></td>
+                    <td>买入过户费:</td> <td> <span id="buyTransferFee" class="info"></span></td>
+                </tr>
+                <tr>
+                    <td>买入通讯费:</td> <td>  <span id="buyCommunications" class="info"></span></td>
+                    <td>卖出印花税:</td> <td>   <span id="sellStampDuty" class="info"></span></td>
+                </tr>
+                <tr>
+                    <td>卖出手续费:</td> <td>   <span id="sellCharge" class="info"></span></span></td>
+                    <td>卖出过户费:</td> <td>    <span id="sellTransferFee" class="info"></span></td>
+                </tr>
+                <tr>
+                    <td>卖出通讯费:</td> <td>     <span id="sellCommunications" class="info"></span></span></td>
+                    <td>总的买入费用:</td> <td>     <span id="totalBuyCharge" class="info focus-info"></span></td>
+                </tr>
+                <tr>
+                    <td>总的卖出费用:</td> <td>   <span id="totalSellCharge" class="info focus-info"></span></span></td>
+                    <td>总的手续费用:</td> <td>    <span id="totalCharge" class="info focus-info"></span></td>
+                </tr>
+            </table>
+        </div>
+        </br>
+    </div>
+    <div class="row">
+        <div class="form-group" style="margin-bottom: 30px;">
+            <p style="font-size: 18px;color: deeppink">操作记录信息:</p>
+        </div>
+        <div class="row">
+            <table class="table table-no-bordered">
+                <tr>
+                    <td>买入金额:</td> <td>  <span id="buyMoney" class="info"></span></td>
+                </tr>
+                <tr>
+                    <td>卖出金额:</td> <td>     <span id="sellMoney" class="info"></span></td>
+                </tr>
+                <tr>
+                    <td>买入发生金额:</td> <td>  <span id="buyActualMoney" class="info"></span></td>
+                </tr>
+                <tr>
+                    <td>实际到账:</td> <td>  <span id="destMoney" class="info focus-info"></span></td>
+                </tr>
+                <tr>
+                    <td>不卖，赚钱数:</td> <td>  <span id="noSellMoney" class="info focus-info"></span></td>
+                </tr>
+                <tr>
+                    <td>实际所得:</td> <td>  <span id="realMoney" class="info focus-info"></span></td>
+                </tr>
+                <tr>
+                    <td>操作价格:</td> <td>  <span id="realPrice" class="info"></span></td>
+                </tr>
+                <tr>
+                    <td>操作比例(%):</td> <td>  <span id="realProportion" class="info"></span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../webjars/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript" src="../webjars/bootstrap/3.4.1/js/bootstrap.js"></script>
+<script type="text/javascript" src="../static/plugins/bootstrap-table/bootstrap-table.js"></script>
+<script type="text/javascript" src="../static/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="../static/plugins/flavr/flavr.min.js"></script>
+<script type="text/javascript" src="../money.js"></script>
+
+</body>
+</html>

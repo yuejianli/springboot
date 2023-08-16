@@ -1,0 +1,5 @@
+# 微信发送的配置信息
+weixin:
+  corpId: xxx
+  coprsecret: xxxx
+  agentId: 1000003

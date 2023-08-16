@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消费者</title>
+    <link rel="StyleSheet" href="webjars/bootstrap/3.4.1/css/bootstrap.css" type="text/css">
+</head>
+<body class="container">
+
+<!--展示信息-->
+消费者:  <p id="message" style="margin-top:200px;"></p>
+
+<button type="button" class="btn btn-success" id="get_submit">Get获取信息</button>
+
+<button type="button" class="btn btn-success" id="post_submit">Post获取信息</button>
+<script type="text/javascript" src="webjars/jquery/3.5.1/jquery.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.4.1/js/bootstrap.js"></script>
+
+<script>
+   $(function(){
+
+   })
+   //get请求
+   $("#get_submit").click(function(){
+       $.ajax({
+           async:false,
+           type:"get",
+           url:"http://localhost:8081/Cors_Provider/findById?id=1",
+           success:function(data){
+               $("#message").text(
+                   JSON.stringify(data)
+               );
+           }
+       });
+   });
+
+   //post 请求
+   $("#post_submit").click(function(){
+       $.ajax({
+           async:false,
+           type:"post",
+           url:"http://localhost:8081/Cors_Provider/addUser",
+           data:JSON.stringify({
+               "id":2
+           }),
+           dataType:"json",
+           contentType:"application/json;charset=utf-8",
+           success:function(data){
+               $("#message").text(
+                   JSON.stringify(data)
+               );
+           }
+       });
+   });
+</script>
+</body>
+</html>

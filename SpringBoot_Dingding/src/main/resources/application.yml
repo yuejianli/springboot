@@ -1,0 +1,3 @@
+dingtalk:
+  robot:
+    webhook: https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxx

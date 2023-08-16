@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.yueshushu.learn.stock.mapper.StockMapper">
+    <resultMap id="stockInfoMap" type="top.yueshushu.learn.model.info.StockInfo">
+        <result property="id" column="id"></result>
+        <result property="code" column="code"></result>
+        <result property="name" column="name"></result>
+        <result property="exchange" column="exchange"></result>
+        <result property="fullCode" column="full_code"></result>
+    </resultMap>
+    <resultMap id="stockMap" type="top.yueshushu.learn.stock.pojo.Stock">
+        <result property="id" column="id"></result>
+        <result property="code" column="code"></result>
+        <result property="name" column="name"></result>
+        <result property="exchange" column="exchange"></result>
+        <result property="fullCode" column="full_code"></result>
+    </resultMap>
+
+    <select id="selectByCodeAndType" resultMap="stockMap">
+        select t.id,t.code,t.name,t.exchange,t.full_code from stock t
+        <where>
+            <if test="code != null and code != ''">
+                and (
+                  t.code like concat('%',concat(#{code},'%'))
+                 or t.full_code like concat('%',concat(#{code},'%'))
+                )
+            </if>
+            <if test="exchange != null">
+                and t.exchange=#{exchange}
+            </if>
+        </where>
+        order by t.code+0 asc
+    </select>
+    <delete id="deleteAll">
+        delete from stock  where 1=1
+    </delete>
+</mapper>

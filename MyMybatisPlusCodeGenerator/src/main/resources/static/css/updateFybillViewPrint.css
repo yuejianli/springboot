@@ -1,0 +1,69 @@
+/*
+ *打印
+ */
+ .billFrom.printCon{
+	margin-top:5px;
+}
+.billFrom.printCon p{
+	text-align: center;
+	margin-bottom:0px;
+	margin-bottom:10px;
+	font-size: 15px;
+}
+.billFrom.printCon .panel .panel-heading,
+.billFrom.printCon .panel .panel-body{
+	background-color: #fff;
+	padding-top:0px;
+	padding-bottom:0px;
+}
+
+/* 头部 */
+.billFrom.printCon p[data-name=company_name]{
+	font-size:16px;
+}
+
+/* 表格 */
+.billFrom.printCon .panel table th,
+.billFrom.printCon .panel table td{
+	line-height: 25px;
+	border: 1px solid #708090;
+	text-align: center;
+	padding:2px;
+}
+.billFrom.printCon .panel table tbody td{
+	padding:0px;
+}
+
+.billFrom.printCon .panel table thead tr:first-child th,
+.billFrom.printCon .panel table tfoot tr:last-child td{
+	border: 0px;
+}
+.billFrom.printCon .panel table thead tr:first-child th,
+.billFrom.printCon .panel table tfoot tr td{
+	text-align: left;
+}
+.billFrom.printCon .panel table thead tr:first-child th,
+.billFrom.printCon .panel table thead tr:first-child th b{ 
+	font-weight: 400;
+}	
+		
+.billFrom.printCon .panel table th{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13.5px;
+	line-height: 1.42857143;
+	color: #333;
+}
+.billFrom.printCon .panel table td{
+	font-family: 'MicrosoftYaHei', 'Microsoft YaHei';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 12px;
+}
+.billFrom.printCon .panel table tr .col-md-2{
+	width: 20%;
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
